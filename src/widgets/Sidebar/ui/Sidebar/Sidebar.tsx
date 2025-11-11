@@ -26,5 +26,5 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
                 <LangSwitcher className={cls.lang}/>
             </div>
         </div>
- );
+    );
 }

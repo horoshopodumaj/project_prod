@@ -17,12 +17,12 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = (props) => {
     const {theme, toggleTheme} = useTheme()
 
     return (
-         <Button 
+        <Button 
             theme={ThemeButton.CLEAR}
             className={classNames(cls.themeSwitcher, {}, [className])}
             onClick={toggleTheme}
         >
             {theme === Theme.DARK ? <DarkIcon /> : <LightIcon/>}
         </Button>
- );
+    );
 }
