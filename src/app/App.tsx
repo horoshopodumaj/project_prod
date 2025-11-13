@@ -5,7 +5,7 @@ import { classNames } from 'shared';
 import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 
 
 const App = () => {
@@ -20,8 +20,6 @@ const App = () => {
                     <AppRouter/>
                 </div>
             </Suspense>
-
-       
         </div>
     )
 }
