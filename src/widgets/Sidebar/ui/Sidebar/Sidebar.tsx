@@ -3,6 +3,7 @@ import cls from './Sidebar.module.scss';
 import { useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { Button } from 'shared';
 
 
 interface SidebarProps {
@@ -14,16 +15,18 @@ export const Sidebar: React.FC<SidebarProps> = (props) => {
 
     const [collapsed, setCollapsed] = useState(false);
 
-    const onToggle = ()=> {
+    const onToggle = async()=> {
         setCollapsed(prev => !prev)
     }
 
     return (
-        <div className={classNames(cls.sidebar, 
-            {[cls.collapsed]: collapsed}, 
-            [className])}>
+        <div 
+            data-testid='sidebar'
+            className={classNames(cls.sidebar, 
+                {[cls.collapsed]: collapsed}, 
+                [className])}>
             {/* eslint-disable-next-line */}
-            <button onClick={onToggle}>toggle</button>
+            <Button data-testid='sidebar-toggle' onClick={onToggle}>toggle</Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
                 <LangSwitcher className={cls.lang}/>
