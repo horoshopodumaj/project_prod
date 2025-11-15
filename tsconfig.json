@@ -11,6 +11,10 @@
     "paths": {
       "*": ["./src/*"]
     },
+    "types": [
+      "node"
+      //"glob"
+    ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
@@ -19,7 +23,9 @@
       "module": "CommonJS"
     }
   },
-  // "include": [
-  //   "./config/jest/setupTests.ts"
-  // ]
+  "include": [
+    "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+  ]
 }

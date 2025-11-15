@@ -5,7 +5,6 @@ import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 
 const AppRouter = () => { 
     return (
-        //eslint-disable-next-line 
         <Suspense fallback={<PageLoader/>}>
             <Routes>
                 {Object.values(routeConfig).map(({path, element})=> (
