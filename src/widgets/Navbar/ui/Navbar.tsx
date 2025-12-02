@@ -17,7 +17,6 @@ export const Navbar = ({className}:INavbarProps) => {
                 <AppLink to={'/'} theme={AppLinkTheme.SECONDARY} 
                     className={cls.mainLink}>{t("Главная страница")}
                 </AppLink>
-                <AppLink to={'/about'} theme={AppLinkTheme.SECONDARY}>{t('О нас')}</AppLink>
             </div>
 
         </div>
