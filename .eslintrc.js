@@ -22,7 +22,8 @@ module.exports = {
     plugins: [
         "react",
         '@typescript-eslint',
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     rules: {
         "react/jsx-indent": [2, 4],
@@ -50,7 +51,9 @@ module.exports = {
             ignoreAttribute: ['data-testid', 'to']
         }],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
-        'linebreak-style': 0
+        'linebreak-style': 0,
+        "react-hooks/rules-of-hooks": "error", 
+        "react-hooks/exhaustive-deps": "error" 
     },
     root: true,
     globals: {
@@ -58,9 +61,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
-                "i18next/no-literal-string": 'off'
+                "i18next/no-literal-string": 'off',
+                'max-len': 'off'
             }
         }
     ]
