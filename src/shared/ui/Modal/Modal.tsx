@@ -21,7 +21,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     } = props;
 
     const timeRef = useRef<ReturnType <typeof setTimeout>>();
-    const {theme} = useTheme();
+    const { theme } = useTheme();
 
     const [isClosing, setIsClosing] = useState(false);
 
@@ -62,7 +62,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
 
     return (
         <Portal>
-            <div className={classNames(cls.modal, mods, [className, cls[theme]])}>
+            <div className={classNames(cls.modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div 
                         className={classNames(cls.content, {[cls.contentOpened]: isOpen}, [])} 
