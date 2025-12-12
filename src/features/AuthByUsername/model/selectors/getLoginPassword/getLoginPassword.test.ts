@@ -2,7 +2,7 @@ import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { getLoginPassword } from "./getLoginPassword";
 
-describe('getLoginPassword.test test', ()=> {
+describe('getLoginPassword test', ()=> {
     test('should return password', ()=> {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
