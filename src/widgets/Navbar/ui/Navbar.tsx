@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { Button, classNames } from 'shared'
 import cls from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -13,7 +13,7 @@ interface INavbarProps {
     className?: string
 }
 
-export const Navbar = ({className}:INavbarProps) => {
+export const Navbar = memo(({className}:INavbarProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch()
     const authData = useSelector(getUserAuthData)
@@ -60,4 +60,7 @@ export const Navbar = ({className}:INavbarProps) => {
             )}
         </div>
     )
-}
+})
+
+Navbar.displayName = 'Navbar'; 
+export default Navbar;

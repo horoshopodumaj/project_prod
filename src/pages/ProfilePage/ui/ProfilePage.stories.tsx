@@ -4,21 +4,23 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
-import ThemeSwitcher from './ThemeSwitcher';
+import ProfilePage from './ProfilePage';
+import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 
 export default {
-    title: 'widget/ThemeSwitcher',
-    component: ThemeSwitcher,
+    title: 'pages/ProfilePage',
+    component: ProfilePage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ThemeSwitcher>;
+} as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.args = {};
+Light.decorators = [StoreDecorators({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorators({})];

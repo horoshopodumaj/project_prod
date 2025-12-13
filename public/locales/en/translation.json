@@ -8,7 +8,7 @@
   "Ошибка": "Error",
   "Короткий язык": "EN",
   "О нас": "About us",
-  "Главная страница": "Main",
+  "Главная": "Main",
   "Войти": "Login",
   "значение": "value",
   "уменьшить": "decrement",
@@ -17,5 +17,7 @@
   "Введите пароль": "Enter пароль",
   "Форма авторизации": "Authorization form",
   "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
-  "Выйти": "Log out"
+  "Выйти": "Log out",
+   "Страница профиля": "Profile page",
+   "Профиль": "Profile"
 }

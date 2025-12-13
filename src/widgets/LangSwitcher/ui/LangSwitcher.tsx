@@ -2,13 +2,14 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared';
 import { ButtonTheme } from 'shared/ui/Button/Button';
+import { memo } from 'react';
 
 interface LangSwitcherProps {
     className?: string;
     short?: boolean;
 }
 
-export const LangSwitcher: React.FC<LangSwitcherProps> = (props) => {
+const LangSwitcher: React.FC<LangSwitcherProps> = memo((props) => {
     const { className, short } = props;
 
     const { t, i18n } = useTranslation();
@@ -26,4 +27,9 @@ export const LangSwitcher: React.FC<LangSwitcherProps> = (props) => {
             {t(short ? 'Короткий язык' : 'Язык')}
         </Button>
     );
-}
+})
+
+
+
+LangSwitcher.displayName = 'LangSwitcher'; 
+export default LangSwitcher;
