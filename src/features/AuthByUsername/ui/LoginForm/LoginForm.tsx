@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Text } from 'shared';
 import Input from 'shared/ui/Input/Input';
 import { ButtonTheme } from 'shared/ui/Button/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { loginByUsername } from 
@@ -19,10 +19,12 @@ import { getLoginIsLoading } from
     '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { DymanicModuleLoader, ReducersList } from 
     'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 
 export interface LoginFormProps {
     className?: string;
+    onSuccess: ()=> void;
 }
 
 const initialReducers: ReducersList = {
@@ -31,14 +33,14 @@ const initialReducers: ReducersList = {
 
 const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     const {t} = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginIsLoading);
    
-    const { className } = props;
+    const { className, onSuccess } = props;
 
     const onChangeUsername = useCallback((value: string)=> {
         dispatch(loginActions.setUsername(value))
@@ -48,9 +50,12 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick= useCallback(()=> {
-        dispatch(loginByUsername({username, password}))
-    }, [dispatch, username, password])
+    const onLoginClick= useCallback(async ()=> {
+        const result = await dispatch(loginByUsername({username, password}));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, username, password, onSuccess])
 
     return (
         <DymanicModuleLoader reducers={initialReducers} removeAfterUnmount>

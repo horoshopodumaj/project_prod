@@ -1,10 +1,7 @@
 import React, { useCallback, useState } from 'react'
-import { AppLink, Button, classNames } from 'shared'
+import { Button, classNames } from 'shared'
 import cls from './Navbar.module.scss'
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
-import { Modal } from 'shared/ui/Modal/Modal'
-import { Theme } from 'app/providers/ThemeProvider'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
@@ -33,7 +30,6 @@ export const Navbar = ({className}:INavbarProps) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
-        setIsAuthModal(false)
     }, [dispatch])
 
     if(authData) {
