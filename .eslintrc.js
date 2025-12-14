@@ -53,11 +53,13 @@ module.exports = {
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'linebreak-style': 0,
         "react-hooks/rules-of-hooks": "error", 
-        "react-hooks/exhaustive-deps": "error" 
+        "react-hooks/exhaustive-deps": "error" ,
+        "no-undef": 'off'
     },
     root: true,
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [
         {

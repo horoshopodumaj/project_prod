@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 
@@ -22,7 +22,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
         lazy
     } = props;
 
-    const timeRef = useRef<ReturnType <typeof setTimeout>>();
+    const timeRef = useRef() as MutableRefObject<ReturnType <typeof setTimeout>>;
     const { theme } = useTheme();
 
     const [isClosing, setIsClosing] = useState(false);
@@ -64,7 +64,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
         }
     }, [isOpen, onKeyDown])
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     }
