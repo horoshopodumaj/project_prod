@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
 import {  Text } from 'shared';
 import { useTranslation } from 'react-i18next';
@@ -59,8 +59,12 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
         )
     }
 
+    const mods: Mods = {
+        [cls.editing]: !readonly
+    }
+
     return (
-        <div className={classNames(cls.profileCard, {}, [className])}>
+        <div className={classNames(cls.profileCard, mods, [className])}>
             <div className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.avatarWrapper}>
