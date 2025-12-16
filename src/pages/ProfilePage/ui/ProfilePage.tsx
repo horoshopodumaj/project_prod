@@ -57,6 +57,14 @@ const ProfilePage: React.FC<ProfilePageProps> = (props) => {
         dispatch(profileActions.updateProfile({city: value || ''}))
     }, [dispatch]);
 
+    const onChangeUsername = useCallback((value?: string)=> {
+        dispatch(profileActions.updateProfile({username: value || ''}))
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value?: string)=> {
+        dispatch(profileActions.updateProfile({avatar: value || ''}))
+    }, [dispatch]);
+
     return (
         <DymanicModuleLoader reducers={reducers}
             removeAfterUnmount>
@@ -71,6 +79,8 @@ const ProfilePage: React.FC<ProfilePageProps> = (props) => {
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeUsername={onChangeUsername}
                 />
             </div>
         </DymanicModuleLoader>

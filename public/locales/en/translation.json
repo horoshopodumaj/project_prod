@@ -27,5 +27,6 @@
     "Город": "City",
     "Валюта": "Currency",
     "Страна": "Country",
-    "Аватар":"Avatar"
+    "Аватар":"Avatar",
+    "Логин": "Username"
 }
