@@ -19,5 +19,13 @@
   "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
   "Выйти": "Log out",
    "Страница профиля": "Profile page",
-   "Профиль": "Profile"
+   "Профиль": "Profile",
+   "Попробуйте обновить страницу": "Try refreshing the page",
+   "Отменить": "Cancel",
+   "Сохранить": "Save",
+    "Возраст": "Age",
+    "Город": "City",
+    "Валюта": "Currency",
+    "Страна": "Country",
+    "Аватар":"Avatar"
 }

@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "id":"1",
+      "id": "1",
       "title": "json-server",
       "userId": "1"
     },
@@ -15,7 +15,7 @@
     {
       "id": "1",
       "body": "some comment",
-      "postId":"1"
+      "postId": "1"
     }
   ],
   "users": [
@@ -25,10 +25,10 @@
       "password": "123"
     }
   ],
-  "profile": { 
+  "profile": {
     "first": "Maria",
     "lastname": "Ivanova",
-    "age": 43,
+    "age": 23,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",

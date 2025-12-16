@@ -1,44 +1,89 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
-import { useSelector } from 'react-redux';
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileIsLoading } from 
-    'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { Button, Text } from 'shared';
+import {  Text } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { ButtonTheme } from 'shared/ui/Button/Button';
 import Input from 'shared/ui/Input/Input';
+import { Profile } from '../../model/types/profile';
+import { Loader } from 'shared/ui/Loader/Loader';
+import { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 
 interface ProfileCardProps {
     className?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string;
+    readonly?: boolean;
+    onChangeFirstname?: (value?: string)=> void;
+    onChangeLastname?: (value?: string)=> void;
+    onChangeAge?: (value?: string)=> void;
+    onChangeCity?: (value?: string)=> void;
 }
 
+
+
 export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
-    const { className } = props;
-    const {t} = useTranslation('profile')
-    const data = useSelector(getProfileData)
-    const error = useSelector(getProfileError)
-    const isLoading = useSelector(getProfileIsLoading)
+    const { className, 
+        data, 
+        isLoading, 
+        error,
+        readonly,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangeAge,
+        onChangeCity
+    } = props;
+    const {t} = useTranslation('profile');
+
+    if(isLoading) {
+        return (
+            <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+                <Loader/>
+            </div>
+        )
+    }
+
+    if(error) {
+        return (
+            <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+                <Text theme={TextTheme.ERROR}
+                    title={t('Произошла непредвиденная ошибка')}
+                    text={t('Попробуйте обновить страницу')}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        )
+    }
 
     return (
         <div className={classNames(cls.profileCard, {}, [className])}>
-            <div className={cls.header}>
-                <Text title={t("Профиль")}/>
-                <Button theme={ButtonTheme.OUTLINE} className={cls.editBtn}>
-                    {t('Редактировать')}
-                </Button>
-            </div>
             <div className={cls.data}>
                 <Input
                     value={data?.first}
                     placeholder={t('Имя')}
                     className={cls.input}
+                    onChange={onChangeFirstname}
+                    readonly={readonly}
                 />
                 <Input
                     value={data?.lastname}
                     placeholder={t('Фамилия')}
                     className={cls.input}
+                    onChange={onChangeLastname}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.age}
+                    placeholder={t('Возраст')}
+                    className={cls.input}
+                    onChange={onChangeAge}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.city}
+                    placeholder={t('Город')}
+                    className={cls.input}
+                    onChange={onChangeCity}
+                    readonly={readonly}
                 />
             </div>
         </div>

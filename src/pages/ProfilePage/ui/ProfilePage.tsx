@@ -2,9 +2,19 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DymanicModuleLoader, ReducersList } 
     from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
-import { useEffect } from 'react';
+import { fetchProfileData, 
+    getProfileData, 
+    getProfileError, 
+    getProfileForm, 
+    getProfileIsLoading, 
+    getProfileReadonly, 
+    profileActions, 
+    ProfileCard, 
+    profileReducer } from 'entities/Profile';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 
 const reducers: ReducersList = {
@@ -19,17 +29,49 @@ const ProfilePage: React.FC<ProfilePageProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation();
 
+    const formData = useSelector(getProfileForm)
+    const error = useSelector(getProfileError)
+    const isLoading = useSelector(getProfileIsLoading)
+    const readonly = useSelector(getProfileReadonly)
+
     const dispatch = useAppDispatch()
 
     useEffect(()=> {
         dispatch(fetchProfileData())
-    }, [dispatch])
+    }, [dispatch]);
+
+
+    const onChangeFirstname = useCallback((value?: string)=> {
+        dispatch(profileActions.updateProfile({first: value || ''}))
+    }, [dispatch]);
+
+    const onChangeLastname = useCallback((value?: string)=> {
+        dispatch(profileActions.updateProfile({lastname: value || ''}))
+    }, [dispatch]);
+
+    const onChangeAge = useCallback((value?: string)=> {
+        dispatch(profileActions.updateProfile({age: Number(value) || 0}))
+    }, [dispatch]);
+
+    const onChangeCity = useCallback((value?: string)=> {
+        dispatch(profileActions.updateProfile({city: value || ''}))
+    }, [dispatch]);
 
     return (
         <DymanicModuleLoader reducers={reducers}
             removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
-                <ProfileCard/>
+                <ProfilePageHeader/>
+                <ProfileCard 
+                    data={formData} 
+                    error={error} 
+                    isLoading={isLoading}
+                    readonly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                />
             </div>
         </DymanicModuleLoader>
         
