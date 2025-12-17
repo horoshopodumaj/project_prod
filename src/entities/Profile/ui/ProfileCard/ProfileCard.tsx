@@ -1,12 +1,16 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
-import {  Text } from 'shared';
+import {  Select, Text } from 'shared';
 import { useTranslation } from 'react-i18next';
 import Input from 'shared/ui/Input/Input';
 import { Profile } from '../../model/types/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Currency } from "entities/Currency/model/types/currency";
+import { CurrenceSelect } from 'entities/Currency/ui/CurrenceSelect/CurrenceSelect';
+import { Country } from "entities/Country/model/types/country";
+import { CountrySelector } from 'entities/Country';
 
 interface ProfileCardProps {
     className?: string;
@@ -20,6 +24,8 @@ interface ProfileCardProps {
     onChangeCity?: (value?: string)=> void;
     onChangeUsername?: (value?: string)=> void;
     onChangeAvatar?: (value?: string)=> void;
+    onChangeCurrency?: (value: Currency)=> void;
+    onChangeCountry?: (value: Country)=> void;
 }
 
 
@@ -35,7 +41,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
         onChangeAge,
         onChangeCity,
         onChangeAvatar,
-        onChangeUsername
+        onChangeUsername,
+        onChangeCurrency,
+        onChangeCountry
     } = props;
     const {t} = useTranslation('profile');
 
@@ -111,6 +119,18 @@ export const ProfileCard: React.FC<ProfileCardProps> = (props) => {
                     placeholder={t("Логин")}
                     className={cls.input}
                     onChange={onChangeUsername}
+                    readonly={readonly}
+                />
+                <CurrenceSelect 
+                    className={cls.input}
+                    value={data?.currency} 
+                    onChange={onChangeCurrency} 
+                    readonly={readonly}
+                />
+                <CountrySelector 
+                    className={cls.input}
+                    value={data?.country} 
+                    onChange={onChangeCountry} 
                     readonly={readonly}
                 />
             </div>

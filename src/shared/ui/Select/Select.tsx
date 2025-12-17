@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 import { ChangeEvent, memo, useMemo } from 'react';
 
@@ -14,6 +14,7 @@ interface SelectProps {
     options?: SelectOptions[];
     value?: string;
     onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Select: React.FC<SelectProps> = memo((props) => {
@@ -21,11 +22,16 @@ export const Select: React.FC<SelectProps> = memo((props) => {
         label, 
         options, 
         value, 
-        onChange 
+        onChange,
+        readonly
     } = props;
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value)
+    }
+
+    const mods: Mods = {
+        [cls.readonly]: readonly,
     }
 
     const optionsList = useMemo(()=> {
@@ -43,13 +49,14 @@ export const Select: React.FC<SelectProps> = memo((props) => {
     }, [options])
 
     return (
-        <div className={classNames(cls.wrapper, {}, [className])}>
+        <div className={classNames(cls.wrapper, mods, [className])}>
             {label && (
                 <span className={cls.label}>
                     {`${label}>`}
                 </span>
             )}
             <select 
+                disabled={readonly}
                 name="" 
                 id="" 
                 className={cls.select}

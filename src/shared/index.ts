@@ -3,9 +3,10 @@ import { classNames } from "./lib/classNames/classNames";
 import { AppLink } from "./ui/AppLink/AppLink";
 import { Button } from "./ui/Button/Button";
 import { Text } from "./ui/Text/Text";
+import { Select } from "./ui/Select/Select";
 
 
 
 
 
-export {classNames, AppLink, Button, Text, USER_LOCALSTORAGE_KEY}
+export {classNames, AppLink, Button, Text, Select,USER_LOCALSTORAGE_KEY}
