@@ -1,6 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
-import {  Select, Text } from 'shared';
+import {  Text } from 'shared';
 import { useTranslation } from 'react-i18next';
 import Input from 'shared/ui/Input/Input';
 import { Profile } from '../../model/types/profile';
