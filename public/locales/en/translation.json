@@ -28,5 +28,10 @@
     "Валюта": "Currency",
     "Страна": "Country",
     "Аватар":"Avatar",
-    "Логин": "Username"
+    "Логин": "Username",
+    "Некорректный возраст": "Incorrect age",
+    "Имя и фамилия обязательны": "First and last name are required",
+    "Укажите страну": "Specify the country",
+    "Ошибка сервера": "Server error",
+    "Нет данных": "No data available"
 }
