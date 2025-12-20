@@ -51,7 +51,9 @@ const ProfilePage: React.FC<ProfilePageProps> = (props) => {
     const dispatch = useAppDispatch()
 
     useEffect(()=> {
-        dispatch(fetchProfileData())
+        if(__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData())
+        }
     }, [dispatch]);
 
 
