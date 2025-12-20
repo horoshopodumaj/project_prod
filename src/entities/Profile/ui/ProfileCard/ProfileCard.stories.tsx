@@ -3,8 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import{ ProfileCard}  from './ProfileCard';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import Avatar from 'shared/assets/tests/avatar_test.jpg';
-
 
 export default {
     title: 'entities/ProfileCard',
@@ -26,7 +24,7 @@ Primary.args = {
         first: 'name',
         city: 'Erevan',
         currency: Currency.RUB,
-        avatar: Avatar
+        avatar: 'https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg'
     }
 };
 
