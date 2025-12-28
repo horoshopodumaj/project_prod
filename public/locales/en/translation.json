@@ -33,5 +33,6 @@
     "Имя и фамилия обязательны": "First and last name are required",
     "Укажите страну": "Specify the country",
     "Ошибка сервера": "Server error",
-    "Нет данных": "No data available"
+    "Нет данных": "No data available",
+    "Копировать": "Copy"
 }

@@ -3,7 +3,7 @@ import cls from './ArticleDetails.module.scss';
 import { DymanicModuleLoader, ReducersList } from 
     'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 
     'entities/Article/model/services/fetchArticleById/fetchArticleById';
@@ -17,6 +17,12 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
+import { ArticleBlock, AticleBlockType } from '../..//model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from 
+    '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from 
+    '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 
 
@@ -38,13 +44,26 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
     const error = useSelector(getArcticleDetailsError);
     const article = useSelector(getArcticleDetailsData);
 
+    const renderBlock = useCallback((block: ArticleBlock)=> {
+        switch(block.type) {
+        case AticleBlockType.CODE:
+            return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block}/>
+        case AticleBlockType.IMAGE:
+            return <ArticleImageBlockComponent key={block.id} className={cls.block} block={block} />
+        case AticleBlockType.TEXT:
+            return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block}/>
+        default:
+            return null;
+        }
+    }, [])
+
     useEffect(()=> {
-        dispatch(fetchArticleById(id))
+        if(__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id))
+        }
     }, [dispatch, id]);
 
     let content;
-
-
 
     if(isLoading) {
         content  = (
@@ -109,6 +128,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <Text text={article?.createdAt}/>
                 </div>
+                {article?.blocks.map(renderBlock)}
             </>
         )
     }

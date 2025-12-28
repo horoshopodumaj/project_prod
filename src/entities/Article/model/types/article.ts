@@ -1,5 +1,5 @@
 
-export enum AticleBlocktype {
+export enum AticleBlockType {
     TEXT ='TEXT',
     IMAGE='IMAGE',
     CODE='CODE'
@@ -8,27 +8,27 @@ export enum AticleBlocktype {
 
 export interface ArticleBlockBase {
     id: string;
-    type: AticleBlocktype;
+    type: AticleBlockType;
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
-    type: AticleBlocktype.CODE;
+    type: AticleBlockType.CODE;
     code: string;
 }
 
-export interface ArticlImageBlock extends ArticleBlockBase{
-    type: AticleBlocktype.IMAGE;
+export interface ArticleImageBlock extends ArticleBlockBase{
+    type: AticleBlockType.IMAGE;
     title: string;
     src: string;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
-    type: AticleBlocktype.TEXT;
+    type: AticleBlockType.TEXT;
     title?: string;
     paragraphs: string[];
 }
 
-export type ArticleBlock = ArticleCodeBlock | ArticlImageBlock |ArticleTextBlock;
+export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock |ArticleTextBlock;
 
 export enum ArticleType {
     IT = "IT",
