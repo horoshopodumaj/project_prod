@@ -10,10 +10,14 @@ import { fetchArticleById } from
 import { useSelector } from 'react-redux';
 import { getArcticleDetailsData, getArcticleDetailsError, getArcticleDetailsIsLoading } from 
     '../../model/selectors/articleDetails';
-import { Text } from 'shared';
+import { Icon, Text } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { TextAlign } from 'shared/ui/Text/Text';
+import { TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
+
 
 
 interface ArticleDetailsProps {
@@ -32,7 +36,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
 
     const isLoading = useSelector(getArcticleDetailsIsLoading);
     const error = useSelector(getArcticleDetailsError);
-    const data = useSelector(getArcticleDetailsData);
+    const article = useSelector(getArcticleDetailsData);
 
     useEffect(()=> {
         dispatch(fetchArticleById(id))
@@ -44,7 +48,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
 
     if(isLoading) {
         content  = (
-            <div>
+            <>
                 <Skeleton 
                     width={200}
                     height={200}
@@ -71,7 +75,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
                     height={200}
                     className={cls.skeleton}
                 />
-            </div>
+            </>
         )
     } else if(error) {
         content  = (
@@ -82,9 +86,30 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
         )
     } else {
         content = (
-            <div>
-                {`ArticleDetails`}
-            </div>
+            <>
+                <div className={cls.avatarWrapper}>
+                    <Avatar 
+                        size={200} 
+                        src={article?.img}
+                        className={cls.avatar}
+                    />
+                </div>
+                <Text 
+                    className={cls.title}
+                    title={article?.title}
+                    text={article?.subtitle}
+                    size={TextSize.L}
+                />
+                <div className={cls.articleInfo}>
+                    <Icon Svg={EyeIcon} className={cls.icon}/>
+                    <Text text={String(article?.views)}/>
+                </div>
+
+                <div className={cls.articleInfo}>
+                    <Icon Svg={CalendarIcon} className={cls.icon} />
+                    <Text text={article?.createdAt}/>
+                </div>
+            </>
         )
     }
 
