@@ -107,13 +107,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0POAG96os_l1ouARai6iCYQZiR6mSGAMv1g&s"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
     }
   ],
   "profile": {
