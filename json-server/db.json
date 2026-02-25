@@ -100,6 +100,12 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "id": "4",
+      "text": "some comment 4",
+      "articleId": "1",
+      "userId": "2"
     }
   ],
   "users": [
@@ -118,14 +124,28 @@
       "avatar": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
     }
   ],
-  "profile": {
-    "first": "Maria",
-    "lastname": "Ivanova",
-    "age": 23,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://thumbs.dreamstime.com/b/d-icon-avatar-cartoon-cute-freelancer-woman-working-online-learning-laptop-transparent-png-background-works-embodying-345422695.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Maria",
+      "lastname": "Ivanova",
+      "age": 23,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://thumbs.dreamstime.com/b/d-icon-avatar-cartoon-cute-freelancer-woman-working-online-learning-laptop-transparent-png-background-works-embodying-345422695.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Mark",
+      "lastname": "Petrosov",
+      "age": 73,
+      "currency": "USD",
+      "country": "Armenia",
+      "city": "Erevan",
+      "username": "user",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
+    }
+  ]
 }

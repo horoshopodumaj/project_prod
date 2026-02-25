@@ -2,8 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './CommentCard.module.scss';
 import { Comment } from 'entities/Comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared';
+import { AppLink, Text } from 'shared';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface CommentCardProps {
     className?: string;
@@ -28,10 +29,10 @@ export const CommentCard: React.FC<CommentCardProps> = (props) => {
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
-            <div className={cls.header}>
+            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
                 <Avatar size={30} src={comment.user.avatar}/>
                 <Text className={cls.username} title={comment.user.username}/>
-            </div>
+            </AppLink>
             <Text className={cls.text} text={comment.text}/>
         </div>
     );
