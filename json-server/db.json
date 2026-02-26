@@ -126,6 +126,12 @@
       "userId": "2",
       "text": "123ee",
       "id": "iFfnSia"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "новый комментарий",
+      "id": "ofvmK2E"
     }
   ],
   "users": [

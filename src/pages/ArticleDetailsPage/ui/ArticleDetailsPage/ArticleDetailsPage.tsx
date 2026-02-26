@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared';
@@ -19,6 +19,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchCommentsByArticleId } 
     from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/addCommentForm';
+import { addCommentForArticle } 
+    from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -35,6 +37,11 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
     const { id } = useParams<{id: string}>();
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleCommentsIsLoading);
+
+
+    const onSendComment = useCallback((text: string)=> {
+        dispatch(addCommentForArticle(text))
+    }, [dispatch])
 
 
     useInitialEffect(()=> {
@@ -55,7 +62,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id}/>
                 <Text className={cls.commentTitle} title={t('Комментарии')}/>
-                <AddCommentForm/>
+                <AddCommentForm onSendComment={onSendComment}/>
                 <CommentList isLoading={isLoading} comments={comments}/>
             </div>
         </DymanicModuleLoader>

@@ -13,11 +13,11 @@ import { addCommentFormActions, addCommentFormReducer }
     from '../../model/slice/addCommentFormSlice';
 import { DymanicModuleLoader, ReducersList } 
     from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
-import { sendComment } from 'features/addCommentForm/model/services/sendComment/sendComment';
 
 
 export interface AddCommentFormProps {
     className?: string;
+    onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
@@ -25,7 +25,7 @@ const reducers: ReducersList = {
 }
 
 const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
-    const { className } = props;
+    const { className, onSendComment } = props;
 
     const {t} = useTranslation();
     const dispatch = useAppDispatch();
@@ -37,9 +37,10 @@ const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
         dispatch(addCommentFormActions.setText(value))
     }, [dispatch]);
 
-    const onSendComment = useCallback(()=> {
-        dispatch(sendComment());
-    }, [dispatch])
+    const onSendHandler = useCallback(()=> {
+        onSendComment(text || '')
+        onCommentTextChange('')
+    }, [text, onSendComment, onCommentTextChange])
 
     return (
         <DymanicModuleLoader reducers={reducers}>
@@ -52,7 +53,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
                 />
                 <Button 
                     theme={ButtonTheme.OUTLINE}
-                    onClick={onSendComment}
+                    onClick={onSendHandler}
                 >
                     {t('Сохранить')}
                 </Button>
