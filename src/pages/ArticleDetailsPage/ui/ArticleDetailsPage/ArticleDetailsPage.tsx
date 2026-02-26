@@ -49,7 +49,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
     }
 
     return (
-        <DymanicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DymanicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id}/>
                 <Text className={cls.commentTitle} title={t('Комментарии')}/>

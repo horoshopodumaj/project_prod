@@ -17,7 +17,7 @@ interface DymanicModuleLoaderProps {
 export const DymanicModuleLoader: React.FC<DymanicModuleLoaderProps> = (props) => {
     const { children, 
         reducers, 
-        removeAfterUnmount
+        removeAfterUnmount = true
     } = props;
 
     const dispatch = useDispatch();

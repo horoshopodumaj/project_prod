@@ -92,8 +92,7 @@ const ProfilePage: React.FC<ProfilePageProps> = (props) => {
     }, [dispatch]);
 
     return (
-        <DymanicModuleLoader reducers={reducers}
-            removeAfterUnmount>
+        <DymanicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader/>
                 {validateErrors?.length && validateErrors.map((err)=> (

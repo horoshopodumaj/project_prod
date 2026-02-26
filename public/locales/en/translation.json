@@ -34,5 +34,7 @@
     "Укажите страну": "Specify the country",
     "Ошибка сервера": "Server error",
     "Нет данных": "No data available",
-    "Копировать": "Copy"
+    "Копировать": "Copy",
+    "Комментарий": "Comment",
+    "Отправить": "Send"
 }

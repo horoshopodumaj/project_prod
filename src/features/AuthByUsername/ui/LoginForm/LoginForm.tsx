@@ -58,7 +58,7 @@ const LoginForm: React.FC<LoginFormProps> = memo((props) => {
     }, [dispatch, username, password, onSuccess])
 
     return (
-        <DymanicModuleLoader reducers={initialReducers} removeAfterUnmount>
+        <DymanicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.loginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')}/>
                 {error && <Text 

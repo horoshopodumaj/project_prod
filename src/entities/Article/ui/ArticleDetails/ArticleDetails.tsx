@@ -134,8 +134,7 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
     }
 
     return (
-        <DymanicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-
+        <DymanicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articleDetails, {}, [className])}>
                 {content}
             </div>
