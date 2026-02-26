@@ -6,16 +6,17 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { geAddCommentFormError, geAddCommentFormText } 
+import { getAddCommentFormError, getAddCommentFormText } 
     from '../../model/selectors/addCommentFormSelectors';
 import { useCallback } from 'react';
 import { addCommentFormActions, addCommentFormReducer } 
     from '../../model/slice/addCommentFormSlice';
 import { DymanicModuleLoader, ReducersList } 
     from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
+import { sendComment } from 'features/addCommentForm/model/services/sendComment/sendComment';
 
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
     className?: string;
 }
 
@@ -23,29 +24,35 @@ const reducers: ReducersList = {
     addCommentForm: addCommentFormReducer,
 }
 
-export const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
+const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
     const { className } = props;
 
     const {t} = useTranslation();
     const dispatch = useAppDispatch();
-    const text = useSelector(geAddCommentFormText)
-    const error = useSelector(geAddCommentFormError);
+    const text = useSelector(getAddCommentFormText)
+    const error = useSelector(getAddCommentFormError);
 
 
     const onCommentTextChange = useCallback((value: string)=> {
         dispatch(addCommentFormActions.setText(value))
+    }, [dispatch]);
+
+    const onSendComment = useCallback(()=> {
+        dispatch(sendComment());
     }, [dispatch])
 
     return (
         <DymanicModuleLoader reducers={reducers}>
             <div className={classNames(cls.addCommentForm, {}, [className])}>
                 <Input 
+                    className={cls.input}
                     placeholder={t('Комментарий')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
                 <Button 
                     theme={ButtonTheme.OUTLINE}
+                    onClick={onSendComment}
                 >
                     {t('Сохранить')}
                 </Button>
@@ -53,3 +60,5 @@ export const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
         </DymanicModuleLoader>
     );
 }
+
+export default AddCommentForm;

@@ -12,11 +12,13 @@ import { DymanicModuleLoader, ReducersList } from
 import { useSelector } from 'react-redux';
 import { getArticleComments, articleDetailsCommentsReducer } from 
     '../../model/slices/articleDetailsCommentsSlice';
-import { getArticleCommentError, getArticleCommentsIsLoading } from 
+import { getArticleCommentsIsLoading } from 
     '../../model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } 
+    from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/addCommentForm';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -53,6 +55,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
             <div className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id}/>
                 <Text className={cls.commentTitle} title={t('Комментарии')}/>
+                <AddCommentForm/>
                 <CommentList isLoading={isLoading} comments={comments}/>
             </div>
         </DymanicModuleLoader>
