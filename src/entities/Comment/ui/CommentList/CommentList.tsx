@@ -3,7 +3,7 @@ import cls from './CommentList.module.scss';
 import { Comment } from 'entities/Comment';
 import { Text } from 'shared';
 import { useTranslation } from 'react-i18next';
-import { CommentCard } from '../CommentCard/CommentCard';
+import  CommentCard from '../CommentCard/CommentCard';
 
 interface CommentListProps {
     className?: string;
@@ -11,7 +11,7 @@ interface CommentListProps {
     isLoading?: boolean;
 }
 
-export const CommentList: React.FC<CommentListProps> = (props) => {
+const CommentList: React.FC<CommentListProps> = (props) => {
     const {t} = useTranslation();
 
     const { className, 
@@ -36,3 +36,5 @@ export const CommentList: React.FC<CommentListProps> = (props) => {
         </div>
     );
 }
+
+export default CommentList;

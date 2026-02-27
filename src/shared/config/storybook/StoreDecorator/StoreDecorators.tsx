@@ -3,14 +3,19 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
+import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { articleDetailsCommentsReducer } 
+    from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
 import { ReducersList } from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 
 
 const defaultAsyncReducers: ReducersList =  {
     loginForm: loginReducer,
     profile: profileReducer,
-    articleDetails: articleDetailsReducer
+    articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentFormReducer,
+    articleDetailsComments: articleDetailsCommentsReducer
 }
 
 //eslint-disable-next-line 
