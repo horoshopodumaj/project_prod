@@ -5,6 +5,11 @@ export enum AticleBlockType {
     CODE='CODE'
 }
 
+export enum ArticleView {
+    BIG ='BIG',
+    SMALL = "SMALL"
+}
+
 
 export interface ArticleBlockBase {
     id: string;

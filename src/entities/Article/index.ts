@@ -1,12 +1,16 @@
-import { ArticleType } from "./model/types/article";
+import { ArticleType, ArticleView } from "./model/types/article";
 import ArticleDetails from "./ui/ArticleDetails/ArticleDetails";
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import { articleDetailsActions, articleDetailsReducer } from "./model/slice/articleDetailsSlice";
+import { ArticleList } from "./ui/ArticleList/ArticleList";
+
 
 
 export { ArticleDetails, 
     ArticleType, 
+    ArticleView,
     ArticleDetailsSchema,
     articleDetailsReducer,
-    articleDetailsActions
+    articleDetailsActions,
+    ArticleList
 }
