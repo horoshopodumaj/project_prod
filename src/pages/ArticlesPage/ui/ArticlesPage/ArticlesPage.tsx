@@ -3,7 +3,7 @@ import cls from './ArticlesPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleList, ArticleType } from 'entities/Article';
-import { Article, AticleBlockType } from 'entities/Article/model/types/article';
+import { Article, ArticleView, ArticleBlockType } from 'entities/Article/model/types/article';
 
 interface ArticlesPageProps {
     className?: string;
@@ -15,14 +15,18 @@ const article: Article =  {
     "subtitle": "Что нового в JS за 2022 год?",
     "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
     "views": 1022,
+    "user": {
+        "id": '1',
+        "username": 'wdffg',
+    },
     "createdAt": "26.02.2022",
     "type": [
-        ArticleType.IT
+        ArticleType.IT, ArticleType.ECONOMICS, ArticleType.SCIENCE
     ],
     "blocks": [
         {
             "id": "1",
-            "type":AticleBlockType.TEXT,
+            "type":ArticleBlockType.TEXT,
             "title": "Заголовок этого блока",
             "paragraphs": [
                 `Программа, которую по традиции называют «Hello, world!», очень проста. 
@@ -62,7 +66,13 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
 
     return (
         <div className={classNames(cls.articlesPage, {}, [className])}>
-            <ArticleList articles={[article]}/>
+            <ArticleList 
+                view={ArticleView.BIG}
+                articles={
+                    new Array(16)
+                        .fill(0)
+                        .map((item, index)=> ({...article, id: String(index)}))
+                }/>
         </div>
     );
 }

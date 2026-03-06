@@ -17,7 +17,7 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
-import { ArticleBlock, AticleBlockType } from '../..//model/types/article';
+import { ArticleBlock, ArticleBlockType } from '../..//model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 
     '../ArticleImageBlockComponent/ArticleImageBlockComponent';
@@ -46,11 +46,11 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
 
     const renderBlock = useCallback((block: ArticleBlock)=> {
         switch(block.type) {
-        case AticleBlockType.CODE:
+        case ArticleBlockType.CODE:
             return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block}/>
-        case AticleBlockType.IMAGE:
+        case ArticleBlockType.IMAGE:
             return <ArticleImageBlockComponent key={block.id} className={cls.block} block={block} />
-        case AticleBlockType.TEXT:
+        case ArticleBlockType.TEXT:
             return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block}/>
         default:
             return null;

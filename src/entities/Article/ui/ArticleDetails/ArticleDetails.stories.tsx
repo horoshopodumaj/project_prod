@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 
-import { Article, AticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import  ArticleDetails  from './ArticleDetails';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 
@@ -22,12 +22,16 @@ const article: Article = {
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
+    "user": {
+        "id": '1',
+        "username": 'wdffg',
+    },
     createdAt: '26.02.2022',
     type: [ArticleType.IT],
     blocks: [
         {
             id: '1',
-            type: AticleBlockType.TEXT,
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -37,12 +41,12 @@ const article: Article = {
         },
         {
             id: '4',
-            type: AticleBlockType.CODE,
+            type: ArticleBlockType.CODE,
             code: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
         },
         {
             id: '5',
-            type: AticleBlockType.TEXT,
+            type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',

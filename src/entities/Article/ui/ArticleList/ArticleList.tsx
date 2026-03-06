@@ -24,12 +24,14 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
             <ArticleListItem 
                 article={article} 
                 view={view}
+                className={cls.card}
+                key={article.id}
             />
         )
     }
 
     return (
-        <div className={classNames(cls.articleList, {}, [className])}>
+        <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
             {articles.length > 0 
                 ? articles.map(renderArticle)
                 : null}
