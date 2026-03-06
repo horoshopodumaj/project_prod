@@ -67,7 +67,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
     return (
         <div className={classNames(cls.articlesPage, {}, [className])}>
             <ArticleList 
-                view={ArticleView.BIG}
+                view={ArticleView.SMALL}
                 articles={
                     new Array(16)
                         .fill(0)

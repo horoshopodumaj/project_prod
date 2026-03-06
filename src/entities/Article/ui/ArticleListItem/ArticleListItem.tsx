@@ -9,6 +9,9 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface ArticleListItemProps {
     className?: string;
@@ -18,7 +21,13 @@ interface ArticleListItemProps {
 
 export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
     const { className, article, view } = props;
-    const {t} = useTranslation('article')
+    const {t} = useTranslation('article');
+    const navigate = useNavigate()
+
+
+    const onOpenArticle = useCallback(()=> {
+        navigate(RoutePath.article_details + article.id)
+    }, [article.id, navigate])
 
     const types = <Text text={article.type.join(', ')} className={cls.types}/>
 
@@ -51,7 +60,10 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
                         />
                     )}
                     <div className={cls.footer}>
-                        <Button theme={ButtonTheme.OUTLINE}>
+                        <Button 
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onOpenArticle}
+                        >
                             {t('Читать далее')}
                         </Button>
                         {views}
@@ -63,7 +75,7 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
 
     return (
         <div  className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
-            <Card className={cls.card}>
+            <Card className={cls.card} onClick={onOpenArticle}>
                 <div className={cls.imageWrapper}>
                     <img src={article.img} alt={article.title} className={cls.img}/>
                     <Text text={article.createdAt} className={cls.date}/>
