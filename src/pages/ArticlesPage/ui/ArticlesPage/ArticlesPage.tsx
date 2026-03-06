@@ -67,7 +67,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
     return (
         <div className={classNames(cls.articlesPage, {}, [className])}>
             <ArticleList 
-                isLoading
+                isLoading={false}
                 view={ArticleView.BIG}
                 articles={
                     new Array(16)
