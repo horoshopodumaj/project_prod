@@ -90,6 +90,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
 
     useInitialEffect(()=> {
         dispatch(fetchArticlesList())
+        dispatch(articlesPageActions.initState())
     })
 
     return (

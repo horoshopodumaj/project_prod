@@ -7,6 +7,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 import { Article, ArticleView } from 'entities/Article'
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
+import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
 
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -29,7 +30,11 @@ const articlesPageSlice = createSlice({
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
-            state.view = action.payload
+            state.view = action.payload;
+            localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload)
+        },
+        initState: state => {
+            state.view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView
         }
     },
     extraReducers: (builder)=> {
