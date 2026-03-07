@@ -4,6 +4,8 @@ import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import { articleDetailsActions, articleDetailsReducer } from "./model/slice/articleDetailsSlice";
 import { ArticleList } from "./ui/ArticleList/ArticleList";
 import { Article } from "./model/types//article";
+import { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
+
 
 
 
@@ -14,5 +16,6 @@ export { ArticleDetails,
     articleDetailsReducer,
     articleDetailsActions,
     ArticleList,
-    Article
+    Article,
+    ArticleViewSelector
 }
