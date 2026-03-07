@@ -1,10 +1,7 @@
-import { Country } from "entities/Country";
 import { ArticleDetailsSchema } from "../types/articleDetailsSchema"
-import { articleDetailsActions, articleDetailsReducer } from "./articleDetailsSlice";
-import { Currency } from "entities/Currency";
+import { articleDetailsReducer } from "./articleDetailsSlice";
 
 import { fetchArticleById } from "../services/fetchArticleById/fetchArticleById";
-import { error } from "console";
 import { Article, ArticleType, ArticleBlockType } from "../types/article";
 
 

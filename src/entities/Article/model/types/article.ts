@@ -7,8 +7,8 @@ export enum ArticleBlockType {
 }
 
 export enum ArticleView {
-    BIG ='BIG',
-    SMALL = "SMALL"
+    LIST ='LIST',
+    TILED = "TILED"
 }
 
 

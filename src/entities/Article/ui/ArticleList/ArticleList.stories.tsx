@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-
 import { Article, ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article';
 import  {ArticleList } from './ArticleList';
-import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
+
 
 export default {
     title: 'entities/ArticleList',
@@ -56,27 +54,27 @@ const article: Article = {
     ],
 };
 
-export const Small = Template.bind({});
-Small.args = {
+export const Tiled = Template.bind({});
+Tiled.args = {
     articles: [article],
-    view: ArticleView.SMALL
+    view: ArticleView.TILED
 };
 
-export const LoadingSmall = Template.bind({});
-LoadingSmall.args = {
-    view: ArticleView.SMALL,
+export const LoadingTiled = Template.bind({});
+LoadingTiled.args = {
+    view: ArticleView.TILED,
     isLoading: true
 };
 
-export const Big = Template.bind({});
-Big.args = {
+export const List = Template.bind({});
+List.args = {
     articles: [article],
-    view: ArticleView.BIG
+    view: ArticleView.LIST
 };
 
-export const LoadingBig = Template.bind({});
-LoadingBig.args = {
-    view: ArticleView.BIG,
+export const LoadingList = Template.bind({});
+LoadingList.args = {
+    view: ArticleView.LIST,
     isLoading: true
 };
 

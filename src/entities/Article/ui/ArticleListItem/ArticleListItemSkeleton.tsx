@@ -13,7 +13,7 @@ interface ArticleListItemSkeletonProps {
 export const ArticleListItemSkeleton: React.FC<ArticleListItemSkeletonProps> = (props) => {
     const { className, view } = props;
 
-    if(view === ArticleView.BIG) {
+    if(view === ArticleView.LIST) {
 
         return (
             <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>

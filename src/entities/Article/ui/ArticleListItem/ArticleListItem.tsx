@@ -38,7 +38,7 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
         </>
     )
 
-    if(view === ArticleView.BIG) {
+    if(view === ArticleView.LIST) {
         const textBlock = article.blocks.find(
             (block)=> block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
         return (

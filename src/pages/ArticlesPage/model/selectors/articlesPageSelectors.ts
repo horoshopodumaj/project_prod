@@ -7,4 +7,4 @@ export const getArticlesPageIsLoading = (state: StateSchema) =>
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error;
 
 export const getArticlesPageView = (state: StateSchema) => 
-    state.articlesPage?.view || ArticleView.SMALL;
+    state.articlesPage?.view || ArticleView.TILED;

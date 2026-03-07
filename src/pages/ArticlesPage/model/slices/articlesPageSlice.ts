@@ -26,7 +26,7 @@ const articlesPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.SMALL
+        view: ArticleView.TILED
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {

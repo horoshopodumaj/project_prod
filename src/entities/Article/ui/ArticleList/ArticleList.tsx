@@ -13,7 +13,7 @@ interface ArticleListProps {
 
 const getSkeletons = (view: ArticleView) => {
     return (
-        new Array(view === ArticleView.SMALL ? 9 : 3)
+        new Array(view === ArticleView.TILED ? 9 : 3)
             .fill(0)
             .map((item, index)=> (
                 <ArticleListItemSkeleton view={view} className={cls.card} key={index}/>
@@ -26,7 +26,7 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
         className, 
         articles, 
         isLoading, 
-        view= ArticleView.SMALL 
+        view= ArticleView.TILED 
     } = props;
 
     if(isLoading) {
