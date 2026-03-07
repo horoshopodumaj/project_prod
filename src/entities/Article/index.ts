@@ -3,6 +3,7 @@ import ArticleDetails from "./ui/ArticleDetails/ArticleDetails";
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import { articleDetailsActions, articleDetailsReducer } from "./model/slice/articleDetailsSlice";
 import { ArticleList } from "./ui/ArticleList/ArticleList";
+import { Article } from "./model/types//article";
 
 
 
@@ -12,5 +13,6 @@ export { ArticleDetails,
     ArticleDetailsSchema,
     articleDetailsReducer,
     articleDetailsActions,
-    ArticleList
+    ArticleList,
+    Article
 }
