@@ -22,6 +22,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import { addCommentForArticle } 
     from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -57,15 +58,15 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
 
     if(!id) {
         return (
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         )
     }
 
     return (
         <DymanicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <Button onClick={onBackToList}>
                     {t('Назад')}
                 </Button>
@@ -73,7 +74,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
                 <Text className={cls.commentTitle} title={t('Комментарии')}/>
                 <AddCommentForm onSendComment={onSendComment}/>
                 <CommentList isLoading={isLoading} comments={comments}/>
-            </div>
+            </Page>
         </DymanicModuleLoader>
     );
 }

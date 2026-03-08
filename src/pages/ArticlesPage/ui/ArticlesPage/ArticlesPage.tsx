@@ -14,6 +14,7 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { useSelector } from 'react-redux';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } 
     from '../../model/selectors/articlesPageSelectors';
+import { Page } from 'shared/ui/Page/Page';
 
 
 interface ArticlesPageProps {
@@ -89,13 +90,15 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
     }, [dispatch])
 
     useInitialEffect(()=> {
-        dispatch(fetchArticlesList())
         dispatch(articlesPageActions.initState())
+        dispatch(fetchArticlesList({
+            page: 1
+        }))
     })
 
     return (
         <DymanicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articlesPage, {}, [className])}>
+            <Page className={classNames(cls.articlesPage, {}, [className])}>
                 <ArticleViewSelector 
                     view={view} 
                     onViewClick={onChangeView}
@@ -104,7 +107,7 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
                     isLoading={isLoading}
                     view={view}
                     articles={articles}/>
-            </div>
+            </Page>
         </DymanicModuleLoader>
     );
 }
