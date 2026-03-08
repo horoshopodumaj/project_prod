@@ -29,14 +29,6 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
         view= ArticleView.TILED 
     } = props;
 
-    if(isLoading) {
-        return (
-            <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        )
-    }
-
 
     const renderArticle = (article: Article) => {
         return (
@@ -54,6 +46,7 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
             {articles.length > 0 
                 ? articles.map(renderArticle)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 }
