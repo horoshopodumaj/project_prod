@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Article, ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article';
-import  {ArticleList } from './ArticleList';
+import  { ArticleList } from './ArticleList';
+import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 
 
 export default {
@@ -60,10 +61,12 @@ Tiled.args = {
     view: ArticleView.TILED
 };
 
+
+
 export const LoadingTiled = Template.bind({});
 LoadingTiled.args = {
     view: ArticleView.TILED,
-    isLoading: true
+    isLoading: true,
 };
 
 export const List = Template.bind({});

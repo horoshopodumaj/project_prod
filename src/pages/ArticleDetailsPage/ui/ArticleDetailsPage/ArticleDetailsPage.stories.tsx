@@ -6,6 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
+import { ArticleType } from 'entities/Article';
 
 export default {
     title: 'pages/ArticleDetailsPage',
@@ -42,7 +43,22 @@ Light.decorators = [StoreDecorators({
                 articleId: '1'
             },
         }
-    }
+    },
+    // articleDetails: {
+    //     data: {
+    //         id: '1',
+    //         title: 'Javascript news',
+    //         subtitle: 'Что нового в JS за 2022 год?',
+    //         img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    //         views: 1022,
+    //         "user": {
+    //             "id": '1',
+    //             "username": 'wdffg',
+    //         },
+    //         createdAt: '26.02.2022',
+    //         type: [ArticleType.IT],
+    //     }
+    // }
 })];
 
 export const Dark = Template.bind({});

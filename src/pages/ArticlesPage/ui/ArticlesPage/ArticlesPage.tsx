@@ -2,8 +2,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleList, ArticleType, ArticleViewSelector } from 'entities/Article';
-import { Article, ArticleView, ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleList, ArticleViewSelector } from 'entities/Article';
+import { ArticleView } from 'entities/Article/model/types/article';
 import { DymanicModuleLoader, ReducersList } 
     from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { articlesPageActions, articlesPageReducer, getArticles } 
@@ -13,12 +13,12 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import { getArticlesPageError, 
-    getArticlesPageHasMore, 
     getArticlesPageIsLoading, 
-    getArticlesPageNum, 
     getArticlesPageView } 
     from '../../model/selectors/articlesPageSelectors';
 import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } 
+    from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 
 interface ArticlesPageProps {
@@ -35,24 +35,15 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading)
-    const error = useSelector(getArticlesPageError)
     const view = useSelector(getArticlesPageView);
-    const page = useSelector(getArticlesPageNum);
-    const hasMore = useSelector(getArticlesPageHasMore);
 
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view))
     }, [dispatch])
 
     const onLoadNextPart = useCallback(()=> {
-        if(hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page+1))
-            dispatch(fetchArticlesList({
-                page: page + 1
-            }))
-        }
-
-    }, [dispatch, page, hasMore, isLoading])
+        dispatch(fetchNextArticlesPage())
+    }, [dispatch])
 
     useInitialEffect(()=> {
         dispatch(articlesPageActions.initState())
