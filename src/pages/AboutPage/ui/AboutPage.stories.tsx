@@ -5,6 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 
 import AboutPage from './AboutPage';
+import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 
 export default {
     title: 'pages/AboutPage',
@@ -18,7 +19,8 @@ const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 export const Light = Template.bind({});
 Light.args = {};
+Light.decorators = [StoreDecorators({})]
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorators({})];

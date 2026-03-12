@@ -12,7 +12,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import {
-    getArticlesPageInited, 
     getArticlesPageIsLoading, 
     getArticlesPageView } 
     from '../../model/selectors/articlesPageSelectors';
