@@ -11,6 +11,12 @@ export enum ArticleView {
     TILED = "TILED"
 }
 
+export enum ArticleSortField {
+    VIEWS ='views',
+    TITLE = 'title',
+    CREATED='createdAt'
+}
+
 
 export interface ArticleBlockBase {
     id: string;

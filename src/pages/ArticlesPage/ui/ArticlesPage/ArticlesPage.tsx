@@ -19,6 +19,7 @@ import { Page } from 'widgets/Page/Page';
 import { fetchNextArticlesPage } 
     from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 
 interface ArticlesPageProps {
@@ -37,10 +38,6 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
     const isLoading = useSelector(getArticlesPageIsLoading)
     const view = useSelector(getArticlesPageView);
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view))
-    }, [dispatch])
-
     const onLoadNextPart = useCallback(()=> {
         dispatch(fetchNextArticlesPage())
     }, [dispatch])
@@ -56,14 +53,13 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
                 onScrollEnd={onLoadNextPart} 
                 className={classNames(cls.articlesPage, {}, [className])}
             >
-                <ArticleViewSelector 
-                    view={view} 
-                    onViewClick={onChangeView}
-                />
+                <ArticlesPageFilters/>
                 <ArticleList 
                     isLoading={isLoading}
                     view={view}
-                    articles={articles}/>
+                    articles={articles}
+                    className={cls.list}
+                />
             </Page>
         </DymanicModuleLoader>
     );
