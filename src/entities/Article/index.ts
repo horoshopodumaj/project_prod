@@ -21,5 +21,5 @@ export { ArticleDetails,
     Article,
     ArticleViewSelector,
     ArticleSortField,
-    ArticleSortSelector
+    ArticleSortSelector,
 }
