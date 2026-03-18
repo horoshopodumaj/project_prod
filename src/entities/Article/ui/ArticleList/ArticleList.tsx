@@ -3,6 +3,8 @@ import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { Text } from 'shared';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleListProps {
     className?: string;
@@ -29,6 +31,8 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
         view= ArticleView.TILED 
     } = props;
 
+    const {t} = useTranslation('article');
+
 
     const renderArticle = (article: Article) => {
         return (
@@ -38,6 +42,14 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
                 className={cls.card}
                 key={article.id}
             />
+        )
+    }
+
+    if(!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+                <Text title={t('Статьи не найдены')}/>
+            </div>
         )
     }
 

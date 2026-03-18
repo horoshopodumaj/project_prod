@@ -3,7 +3,12 @@ import cls from './ArticlesPageFilters.module.scss';
 import { useCallback, useMemo } from 'react';
 import { articlesPageActions } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ArticleSortField, ArticleSortSelector, ArticleType, ArticleView, ArticleViewSelector } 
+import { ArticleSortField, 
+    ArticleSortSelector, 
+    ArticleType, 
+    ArticleTypeTabs, 
+    ArticleView, 
+    ArticleViewSelector } 
     from 'entities/Article';
 import { 
     getArticlesPageOrder, 
@@ -66,32 +71,14 @@ export const ArticlesPageFilters: React.FC<ArticlesPageFiltersProps> = (props) =
         debounceFetchData()
     }, [dispatch, debounceFetchData])
 
-    const onChangeType = useCallback((tab: TabItem)=> {
+    const onChangeType = useCallback((value: ArticleType)=> {
         //TO-DO через generic
-        dispatch(articlesPageActions.setType(tab.value as ArticleType ));
+        dispatch(articlesPageActions.setType(value));
         dispatch(articlesPageActions.setPage(1));
         fetchData()
     }, [dispatch, fetchData])
 
-    const typeTabs = useMemo<TabItem[]>(()=> [
-        {
-            value: ArticleType.ALL,
-            content: t('Все статьи')
-        },
-        {
-            value: ArticleType.IT,
-            content: t('Айти')
-        },
-        {
-            value: ArticleType.ECONOMICS,
-            content: t('Экономика')
-        },
-        {
-            value: ArticleType.SCIENCE,
-            content: t('Наука')
-        },
-
-    ], [t])
+    
 
     return (
         <div className={classNames(cls.articlesPageFilters, {}, [className])}>
@@ -113,10 +100,9 @@ export const ArticlesPageFilters: React.FC<ArticlesPageFiltersProps> = (props) =
                     value={search} 
                     onChange={onChangeSearch}/>
             </Card>
-            <Tabs
-                tabs={typeTabs}
+            <ArticleTypeTabs
                 value={type}
-                onTabClick={onChangeType}
+                onChangeType={onChangeType}
                 className={cls.tabs}
             />
         </div>
