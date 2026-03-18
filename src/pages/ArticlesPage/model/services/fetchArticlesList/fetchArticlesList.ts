@@ -10,7 +10,7 @@ import {
     from "../../selectors/articlesPageSelectors";
 
 interface FetchArticlesListProps {
-    page?: number;
+    replace?: boolean;
 }
 
 
