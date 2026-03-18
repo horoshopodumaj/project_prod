@@ -52,7 +52,7 @@ Dark.args = {
         },
     ],
     value: 'Экономика',
-    onTabClick: (tab)=> console.log(tab)
+    onTabClick: action('onTabClick')
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
