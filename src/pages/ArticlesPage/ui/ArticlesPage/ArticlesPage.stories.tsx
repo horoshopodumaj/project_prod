@@ -7,6 +7,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import ArticlesPage from './ArticlesPage';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 import { ArticleType } from 'entities/Article';
+import Icon from 'shared/assets/icons/js.png'
 
 export default {
     title: 'pages/ArticlesPage',
@@ -34,7 +35,7 @@ Light.decorators = [StoreDecorators({
                 id: '1',
                 title: 'Javascript news',
                 subtitle: 'Что нового в JS за 2022 год?',
-                img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+                img: Icon,
                 views: 1022,
                 createdAt: '26.02.2022',
                 type: [ArticleType.IT],
@@ -47,7 +48,7 @@ Light.decorators = [StoreDecorators({
                 id: '2',
                 title: 'Javascript news',
                 subtitle: 'Что нового в JS за 2022 год?',
-                img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+                img: Icon,
                 views: 1022,
                 createdAt: '26.02.2022',
                 type: [ArticleType.IT],
@@ -73,7 +74,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK),
                     id: '1',
                     title: 'Javascript news',
                     subtitle: 'Что нового в JS за 2022 год?',
-                    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+                    img: Icon,
                     views: 1022,
                     createdAt: '26.02.2022',
                     type: [ArticleType.IT],
@@ -86,7 +87,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK),
                     id: '2',
                     title: 'Javascript news',
                     subtitle: 'Что нового в JS за 2022 год?',
-                    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+                    img: Icon,
                     views: 1022,
                     createdAt: '26.02.2022',
                     type: [ArticleType.IT],

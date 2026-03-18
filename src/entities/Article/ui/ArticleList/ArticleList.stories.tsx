@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Article, ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article';
 import  { ArticleList } from './ArticleList';
-import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
+import Icon from 'shared/assets/icons/js.png'
 
 
 export default {
@@ -19,7 +19,7 @@ const article: Article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
-    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    img: Icon,
     views: 1022,
     "user": {
         "id": '1',
@@ -58,7 +58,8 @@ const article: Article = {
 export const Tiled = Template.bind({});
 Tiled.args = {
     articles: [article],
-    view: ArticleView.TILED
+    view: ArticleView.TILED,
+    isLoading: false
 };
 
 
@@ -72,7 +73,8 @@ LoadingTiled.args = {
 export const List = Template.bind({});
 List.args = {
     articles: [article],
-    view: ArticleView.LIST
+    view: ArticleView.LIST,
+    isLoading: false
 };
 
 export const LoadingList = Template.bind({});
