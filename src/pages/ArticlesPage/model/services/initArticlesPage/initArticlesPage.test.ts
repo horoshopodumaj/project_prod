@@ -2,6 +2,12 @@ import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { initArticlesPage } from "./initArticlesPage";
 import { fetchArticlesList } from "../fetchArticlesList/fetchArticlesList";
 
+const searchParams = new URLSearchParams({
+    order: 'asc',
+    sort: '',
+    search: ''
+})
+
 jest.mock('../fetchArticlesList/fetchArticlesList')
 describe('initArticlesPage test', ()=> {
     test('sussess', async ()=> {
@@ -11,9 +17,9 @@ describe('initArticlesPage test', ()=> {
                 page: 1
             }});
 
-        await thunk.callThunk();
+        await thunk.callThunk(searchParams);
 
-        expect(thunk.dispatch).toBeCalledTimes(4);
+        expect(thunk.dispatch).toBeCalledTimes(5);
         expect(fetchArticlesList).toBeCalledWith({});
     })
     test('fetchArticlesList not called', async ()=> {
@@ -22,7 +28,7 @@ describe('initArticlesPage test', ()=> {
                 _inited: true
             }});
 
-        await thunk.callThunk();
+        await thunk.callThunk(searchParams);
 
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled;

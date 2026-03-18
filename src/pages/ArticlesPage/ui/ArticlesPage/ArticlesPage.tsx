@@ -20,6 +20,7 @@ import { fetchNextArticlesPage }
     from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 
 interface ArticlesPageProps {
@@ -38,12 +39,14 @@ const ArticlesPage: React.FC<ArticlesPageProps> = (props) => {
     const isLoading = useSelector(getArticlesPageIsLoading)
     const view = useSelector(getArticlesPageView);
 
+    const [searchParams] = useSearchParams();
+
     const onLoadNextPart = useCallback(()=> {
         dispatch(fetchNextArticlesPage())
     }, [dispatch])
 
     useInitialEffect(()=> {
-        dispatch(initArticlesPage())
+        dispatch(initArticlesPage(searchParams))
     })
 
     return (
