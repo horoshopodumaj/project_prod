@@ -86,6 +86,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
                 <ArticleList 
                     articles={recommendations}
                     isLoading={recommendationsisLoading}
+                    className={cls.recommendations}
                 />
                 <Text size={TextSize.L} className={cls.commentTitle} title={t('Комментарии')}/>
                 <AddCommentForm onSendComment={onSendComment}/>
