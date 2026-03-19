@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Text } from 'shared';
 import { CommentList } from 'entities/Comment';
@@ -23,6 +23,13 @@ import { addCommentForArticle }
     from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { articleDetailsRecommendationsReducer, getArticleRecomendations } 
+    from '../../model/slices/articleDetailsRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } 
+    from '../../model/selectors/recommenfations';
+import { TextSize } from 'shared/ui/Text/Text';
+import { fetchArtcileRecommendations } 
+    from '../../model/services/fetchArtcileRecommendations/fetchArtcileRecommendations';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -30,6 +37,7 @@ interface ArticleDetailsPageProps {
 
 const reducers: ReducersList = {
     articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsRecommendations: articleDetailsRecommendationsReducer
 }
 
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
@@ -39,7 +47,9 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
     const {t} = useTranslation('article');
     const { id } = useParams<{id: string}>();
     const comments = useSelector(getArticleComments.selectAll);
-    const isLoading = useSelector(getArticleCommentsIsLoading);
+    const recommendations = useSelector(getArticleRecomendations.selectAll);
+    const commentsisLoading = useSelector(getArticleCommentsIsLoading);
+    const recommendationsisLoading = useSelector(getArticleRecommendationsIsLoading);
 
 
     const onSendComment = useCallback((text: string)=> {
@@ -49,6 +59,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
 
     useInitialEffect(()=> {
         dispatch(fetchCommentsByArticleId(id))
+        dispatch(fetchArtcileRecommendations())
     })
 
     const onBackToList = useCallback(()=> {
@@ -71,9 +82,14 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
                     {t('Назад')}
                 </Button>
                 <ArticleDetails id={id}/>
-                <Text className={cls.commentTitle} title={t('Комментарии')}/>
+                <Text size={TextSize.L} className={cls.commentTitle} title={t('Рекомендации')}/>
+                <ArticleList 
+                    articles={recommendations}
+                    isLoading={recommendationsisLoading}
+                />
+                <Text size={TextSize.L} className={cls.commentTitle} title={t('Комментарии')}/>
                 <AddCommentForm onSendComment={onSendComment}/>
-                <CommentList isLoading={isLoading} comments={comments}/>
+                <CommentList isLoading={commentsisLoading} comments={comments}/>
             </Page>
         </DymanicModuleLoader>
     );

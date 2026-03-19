@@ -12,7 +12,7 @@
     }
   ],
   "articles": [
-       {
+    {
       "id": "1",
       "title": "Javascript news СВЕЖАЯ",
       "subtitle": "Что нового в JS за 2022 год?",
@@ -583,6 +583,12 @@
       "userId": "2",
       "text": "kotlin super",
       "id": "4WuotCE"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "112",
+      "id": "ucj6VBX"
     }
   ],
   "users": [
