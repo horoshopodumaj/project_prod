@@ -63,39 +63,8 @@ const article: Article = {
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorators({
-    articleDetailsComments: {
-        ids: ['1', '2'],
-        entities: {
-            '1': {
-                user: {
-                    id: '1',
-                    username: 'user1'
-                },
-                id: '1',
-                text: 'comment',
-                articleId: '1'
-            },
-            '2': {
-                user: {
-                    id: '2',
-                    username: 'user2'
-                },
-                id: '2',
-                text: 'comment',
-                articleId: '1'
-            },
-        }
-    },
-    articleDetails: {
-        data: article
-    }
-})];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorators({
-        articleDetailsComments: {
+    articleDetailsPage: {
+        comments: {
             ids: ['1', '2'],
             entities: {
                 '1': {
@@ -117,6 +86,41 @@ Dark.decorators = [ThemeDecorator(Theme.DARK),
                     articleId: '1'
                 },
             }
+        },
+    },
+    articleDetails: {
+        data: article
+    }
+})];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK),
+    StoreDecorators({
+        articleDetailsPage: {
+            comments: {
+                ids: ['1', '2'],
+                entities: {
+                    '1': {
+                        user: {
+                            id: '1',
+                            username: 'user1'
+                        },
+                        id: '1',
+                        text: 'comment',
+                        articleId: '1'
+                    },
+                    '2': {
+                        user: {
+                            id: '2',
+                            username: 'user2'
+                        },
+                        id: '2',
+                        text: 'comment',
+                        articleId: '1'
+                    },
+                }
+            },
         },
         articleDetails: {
             data: article

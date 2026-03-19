@@ -5,12 +5,14 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { Text } from 'shared';
 import { useTranslation } from 'react-i18next';
+import { HTMLAttributeAnchorTarget } from 'react';
 
 interface ArticleListProps {
     className?: string;
     articles: Article[];
     isLoading?: boolean;
-    view?: ArticleView
+    view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -27,7 +29,8 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
     const { 
         className, 
         articles, 
-        isLoading, 
+        isLoading,
+        target,
         view= ArticleView.TILED 
     } = props;
 
@@ -41,6 +44,7 @@ export const ArticleList: React.FC<ArticleListProps> = (props) => {
                 view={view}
                 className={cls.card}
                 key={article.id}
+                target={target}
             />
         )
     }

@@ -2,32 +2,26 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } 
     from '../../model/types/article';
-import { Button, Icon, Text } from 'shared';
+import { AppLink, Button, Icon, Text } from 'shared';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface ArticleListItemProps {
     className?: string;
     article: Article;
-    view: ArticleView
+    view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
-    const { className, article, view } = props;
+    const { className, article, view, target } = props;
     const {t} = useTranslation('article');
-    const navigate = useNavigate()
-
-
-    const onOpenArticle = useCallback(()=> {
-        navigate(RoutePath.article_details + article.id)
-    }, [article.id, navigate])
 
     const types = <Text text={article.type.join(', ')} className={cls.types}/>
 
@@ -60,12 +54,17 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
                         />
                     )}
                     <div className={cls.footer}>
-                        <Button 
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={onOpenArticle}
-                        >
-                            {t('Читать далее')}
-                        </Button>
+                        <AppLink 
+                            target={target}
+                            to={RoutePath.article_details + article.id}>
+                            <Button 
+                                theme={ButtonTheme.OUTLINE}
+                            >
+                                {t('Читать далее')}
+                            </Button>
+
+                        </AppLink>
+                        
                         {views}
                     </div>
                 </Card>
@@ -74,8 +73,12 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
     }
 
     return (
-        <div  className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
-            <Card className={cls.card} onClick={onOpenArticle}>
+        <AppLink 
+            target={target}
+            className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+            to={RoutePath.article_details + article.id}
+        >
+            <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
                     <img src={article.img} alt={article.title} className={cls.img}/>
                     <Text text={article.createdAt} className={cls.date}/>
@@ -86,6 +89,6 @@ export const ArticleListItem: React.FC<ArticleListItemProps> = (props) => {
                 </div>
                 <Text text={article.title} className={cls.title}/>
             </Card>
-        </div>
+        </AppLink>
     );
 }

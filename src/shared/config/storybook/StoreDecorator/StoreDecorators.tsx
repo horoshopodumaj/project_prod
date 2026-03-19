@@ -5,8 +5,7 @@ import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 import { addCommentFormReducer } from 'features/addCommentForm/model/slice/addCommentFormSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { articleDetailsCommentsReducer } 
-    from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice';
+import { articlesDetailsReducer } from 'pages/ArticleDetailsPage/model/slices';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { ReducersList } from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 
@@ -15,8 +14,8 @@ const defaultAsyncReducers: ReducersList =  {
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articlesPage: articlesPageReducer
+    articlesPage: articlesPageReducer,
+    articleDetailsPage: articlesDetailsReducer
 }
 
 //eslint-disable-next-line 

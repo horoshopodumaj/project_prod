@@ -10,7 +10,7 @@ import { DymanicModuleLoader, ReducersList } from
     'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 
 import { useSelector } from 'react-redux';
-import { getArticleComments, articleDetailsCommentsReducer } from 
+import { getArticleComments } from 
     '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from 
     '../../model/selectors/comments';
@@ -23,21 +23,21 @@ import { addCommentForArticle }
     from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
-import { articleDetailsRecommendationsReducer, getArticleRecomendations } 
+import { getArticleRecomendations } 
     from '../../model/slices/articleDetailsRecommendationsSlice';
 import { getArticleRecommendationsIsLoading } 
     from '../../model/selectors/recommenfations';
 import { TextSize } from 'shared/ui/Text/Text';
 import { fetchArtcileRecommendations } 
     from '../../model/services/fetchArtcileRecommendations/fetchArtcileRecommendations';
+import { articlesDetailsReducer } from '../../model/slices';
 
 interface ArticleDetailsPageProps {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleDetailsRecommendations: articleDetailsRecommendationsReducer
+    articleDetailsPage: articlesDetailsReducer
 }
 
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
@@ -87,6 +87,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
                     articles={recommendations}
                     isLoading={recommendationsisLoading}
                     className={cls.recommendations}
+                    target={"_blank"}
                 />
                 <Text size={TextSize.L} className={cls.commentTitle} title={t('Комментарии')}/>
                 <AddCommentForm onSendComment={onSendComment}/>
