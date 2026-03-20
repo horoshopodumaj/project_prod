@@ -1,11 +1,14 @@
 import React, { memo, useCallback, useState } from 'react'
-import { Button, classNames } from 'shared'
+import { AppLink, Button, classNames, Text } from 'shared'
 import cls from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { TextTheme } from 'shared/ui/Text/Text'
 
 
 
@@ -35,6 +38,16 @@ export const Navbar = memo(({className}:INavbarProps) => {
     if(authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
+                <Text 
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName} 
+                    title={t('Diana App')}/>
+                <AppLink 
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createBtn}
+                    to={RoutePath.article_create}>
+                    {t('Создать статью')}
+                </AppLink>
                 <Button 
                     theme={ButtonTheme.CLEAR_INVERTED} 
                     className={cls.links}
