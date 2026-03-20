@@ -1,8 +1,8 @@
 import { StateSchema } from "app/providers/StoreProvider";
-import { getArcticleDetailsData, getArcticleDetailsError, getArcticleDetailsIsLoading } from "./articleDetails";
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from "./articleDetails";
 
 describe('articleDetails test', ()=> {
-    test('should return getArcticleDetailsData', ()=> {
+    test('should return getArticleDetailsData', ()=> {
         const article =  {
             id: '1',
             title: 'title'
@@ -14,45 +14,45 @@ describe('articleDetails test', ()=> {
             }
         };
 
-        expect(getArcticleDetailsData(state as StateSchema)).toEqual(article);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(article);
     })
-    test('should return empty getArcticleDetailsData', ()=> {
+    test('should return empty getArticleDetailsData', ()=> {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {}
         };
 
-        expect(getArcticleDetailsData(state as StateSchema)).toEqual(undefined);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined);
     })
-    test('should return getArcticleDetailsIsLoading', ()=> {
+    test('should return getArticleDetailsIsLoading', ()=> {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 isLoading: true
             }
         };
 
-        expect(getArcticleDetailsIsLoading(state as StateSchema)).toEqual(true);
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true);
     })
-    test('should return empty getArcticleDetailsIsLoading', ()=> {
+    test('should return empty getArticleDetailsIsLoading', ()=> {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {}
         };
 
-        expect(getArcticleDetailsIsLoading(state as StateSchema)).toEqual(undefined);
+        expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(undefined);
     })
-    test('should return getArcticleDetailsError', ()=> {
+    test('should return getArticleDetailsError', ()=> {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
                 error: 'error'
             }
         };
 
-        expect(getArcticleDetailsError(state as StateSchema)).toEqual('error');
+        expect(getArticleDetailsError(state as StateSchema)).toEqual('error');
     })
-    test('should return empty getArcticleDetailsError', ()=> {
+    test('should return empty getArticleDetailsError', ()=> {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {}
         };
 
-        expect(getArcticleDetailsError(state as StateSchema)).toEqual(undefined);
+        expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined);
     })
 })

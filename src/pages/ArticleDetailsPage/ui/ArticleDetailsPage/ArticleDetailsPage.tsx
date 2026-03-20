@@ -31,6 +31,7 @@ import { TextSize } from 'shared/ui/Text/Text';
 import { fetchArtcileRecommendations } 
     from '../../model/services/fetchArtcileRecommendations/fetchArtcileRecommendations';
 import { articlesDetailsReducer } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -43,7 +44,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
     const { className } = props;
     const dispatch = useAppDispatch();
-    const navigate = useNavigate()
+    
     const {t} = useTranslation('article');
     const { id } = useParams<{id: string}>();
     const comments = useSelector(getArticleComments.selectAll);
@@ -62,10 +63,6 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
         dispatch(fetchArtcileRecommendations())
     })
 
-    const onBackToList = useCallback(()=> {
-        navigate(RoutePath.articles)
-    }, [navigate])
-
 
     if(!id) {
         return (
@@ -78,9 +75,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
     return (
         <DymanicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                <Button onClick={onBackToList}>
-                    {t('Назад')}
-                </Button>
+                <ArticleDetailsPageHeader/>
                 <ArticleDetails id={id}/>
                 <Text size={TextSize.L} className={cls.commentTitle} title={t('Рекомендации')}/>
                 <ArticleList 

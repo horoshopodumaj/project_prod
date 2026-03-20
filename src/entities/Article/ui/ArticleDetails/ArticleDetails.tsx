@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 
     'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
-import { getArcticleDetailsData, getArcticleDetailsError, getArcticleDetailsIsLoading } from 
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 
     '../../model/selectors/articleDetails';
 import { Icon, Text } from 'shared';
 import { useTranslation } from 'react-i18next';
@@ -40,9 +40,9 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
     const dispatch = useAppDispatch();
     const {t} = useTranslation();
 
-    const isLoading = useSelector(getArcticleDetailsIsLoading);
-    const error = useSelector(getArcticleDetailsError);
-    const article = useSelector(getArcticleDetailsData);
+    const isLoading = useSelector(getArticleDetailsIsLoading);
+    const error = useSelector(getArticleDetailsError);
+    const article = useSelector(getArticleDetailsData);
 
     const renderBlock = useCallback((block: ArticleBlock)=> {
         switch(block.type) {

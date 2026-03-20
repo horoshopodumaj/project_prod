@@ -7,6 +7,11 @@ import { Article } from "./model/types//article";
 import { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
 import { ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector";
 import { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
+import { getArticleDetailsError, 
+    getArticleDetailsIsLoading, 
+    getArticleDetailsData 
+} from "./model/selectors/articleDetails";
+
 
 
 export { ArticleDetails, 
@@ -20,5 +25,9 @@ export { ArticleDetails,
     ArticleViewSelector,
     ArticleSortField,
     ArticleSortSelector,
-    ArticleTypeTabs
+    ArticleTypeTabs,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+    getArticleDetailsData
+
 }

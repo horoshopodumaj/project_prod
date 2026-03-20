@@ -4,7 +4,7 @@ import { Comment } from "entities/Comment";
 
 import { getUserAuthData } from "entities/User";
 
-import { getArcticleDetailsData } from "entities/Article/model/selectors/articleDetails";
+import { getArticleDetailsData } from "entities/Article/model/selectors/articleDetails";
 import { fetchCommentsByArticleId } from "../fetchCommentsByArticleId/fetchCommentsByArticleId";
 
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
@@ -14,7 +14,7 @@ export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfi
 
 
         const userData = getUserAuthData(getState());
-        const article = getArcticleDetailsData(getState());
+        const article = getArticleDetailsData(getState());
 
         if(!userData || !text || !article) {
             rejectWithValue('no data')
