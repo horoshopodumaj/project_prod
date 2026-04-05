@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Text } from 'shared';
+import { Button, Text, VStack } from 'shared';
 import { CommentList } from 'entities/Comment';
 import { DymanicModuleLoader, ReducersList } from 
     'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
@@ -75,18 +75,20 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
     return (
         <DymanicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                <ArticleDetailsPageHeader/>
-                <ArticleDetails id={id}/>
-                <Text size={TextSize.L} className={cls.commentTitle} title={t('Рекомендации')}/>
-                <ArticleList 
-                    articles={recommendations}
-                    isLoading={recommendationsisLoading}
-                    className={cls.recommendations}
-                    target={"_blank"}
-                />
-                <Text size={TextSize.L} className={cls.commentTitle} title={t('Комментарии')}/>
-                <AddCommentForm onSendComment={onSendComment}/>
-                <CommentList isLoading={commentsisLoading} comments={comments}/>
+                <VStack gap='16' max>
+                    <ArticleDetailsPageHeader/>
+                    <ArticleDetails id={id}/>
+                    <Text size={TextSize.L} className={cls.commentTitle} title={t('Рекомендации')}/>
+                    <ArticleList 
+                        articles={recommendations}
+                        isLoading={recommendationsisLoading}
+                        className={cls.recommendations}
+                        target={"_blank"}
+                    />
+                    <Text size={TextSize.L} className={cls.commentTitle} title={t('Комментарии')}/>
+                    <AddCommentForm onSendComment={onSendComment}/>
+                    <CommentList isLoading={commentsisLoading} comments={comments}/>
+                </VStack>
             </Page>
         </DymanicModuleLoader>
     );

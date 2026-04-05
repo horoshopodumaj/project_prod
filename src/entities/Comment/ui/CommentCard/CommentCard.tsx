@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './CommentCard.module.scss';
 import { Comment } from 'entities/Comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { AppLink, Text } from 'shared';
+import { AppLink, Text, VStack } from 'shared';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
@@ -30,13 +30,13 @@ const CommentCard: React.FC<CommentCardProps> = (props) => {
     if(!comment) return null;
 
     return (
-        <div className={classNames(cls.commentCard, {}, [className])}>
+        <VStack gap='8' max className={classNames(cls.commentCard, {}, [className])}>
             <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
                 <Avatar size={30} src={comment.user.avatar}/>
                 <Text className={cls.username} title={comment.user.username}/>
             </AppLink>
             <Text className={cls.text} text={comment.text}/>
-        </div>
+        </VStack>
     );
 }   
 

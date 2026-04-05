@@ -1,7 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './CommentList.module.scss';
 import { Comment } from 'entities/Comment';
-import { Text } from 'shared';
+import { Text, VStack } from 'shared';
 import { useTranslation } from 'react-i18next';
 import  CommentCard from '../CommentCard/CommentCard';
 
@@ -20,20 +19,19 @@ const CommentList: React.FC<CommentListProps> = (props) => {
     } = props;
 
     return (
-        <div className={classNames(cls.commentList, {}, [className])}>
+        <VStack gap='16' max className={classNames('', {}, [className])}>
             {!comments?.length ? (
                 <Text title={t('Комментариев нет')}/>
             ): (            
                 comments.map((comment)=> (
                     <CommentCard 
                         isLoading={isLoading} 
-                        className={cls.comment} 
                         key={comment.id}
                         comment={comment}
                     />
                 ))
             )}
-        </div>
+        </VStack>
     );
 }
 

@@ -3,7 +3,7 @@ import cls from './AddCommentForm.module.scss';
 import Input from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button } from 'shared';
+import { Button, HStack } from 'shared';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getAddCommentFormError, getAddCommentFormText } 
@@ -44,7 +44,8 @@ const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
 
     return (
         <DymanicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.addCommentForm, {}, [className])}>
+            <HStack justify='between' max 
+                className={classNames(cls.addCommentForm, {}, [className])}>
                 <Input 
                     className={cls.input}
                     placeholder={t('Комментарий')}
@@ -57,7 +58,7 @@ const AddCommentForm: React.FC<AddCommentFormProps> = (props) => {
                 >
                     {t('Сохранить')}
                 </Button>
-            </div>
+            </HStack>
         </DymanicModuleLoader>
     );
 }
