@@ -48,7 +48,7 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": 'off',
         "i18next/no-literal-string": ['error', {
             markupOnly: true, 
-            ignoreAttribute: ['data-testid', 'to', 'target']
+            ignoreAttribute: ['data-testid', 'to', 'target', 'align', 'gap', 'direction', 'justify']
         }],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'linebreak-style': 0,

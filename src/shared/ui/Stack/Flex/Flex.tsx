@@ -5,13 +5,15 @@ import { ReactNode } from 'react';
 export type FlexJustify = 'center' | 'start' | 'end' | 'between'
 export type FlexAlign = 'center' | 'start' | 'end'
 export type FlexDirection = 'row' | 'column'
+export type FlexGap = '8' | '4' | '16'
 
-interface FlexProps {
+export interface FlexProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;
     align?: FlexAlign;
     direction: FlexDirection;
+    gap?: FlexGap
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -32,13 +34,20 @@ const directionClasses: Record<FlexDirection, string> = {
     column: cls.directionColumn,
 }
 
+const gapClasses: Record<FlexGap, string> = {
+    '4': cls.gap4,
+    '8': cls.gap8,
+    '16': cls.gap16,
+}
+
 export const Flex: React.FC<FlexProps> = (props) => {
     const { 
         className, 
         children,
         justify='start',
         align='center',
-        direction='row'
+        direction='row',
+        gap
     } = props;
 
 
@@ -46,7 +55,8 @@ export const Flex: React.FC<FlexProps> = (props) => {
         className, 
         justifyClasses[justify], 
         alignClasses[align], 
-        directionClasses[direction]
+        directionClasses[direction],
+        gap && gapClasses[gap]
     ]
 
     return (
