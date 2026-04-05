@@ -3,11 +3,12 @@ import cls from './Sidebar.module.scss';
 import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import {  Button } from 'shared';
+import {  Button, VStack } from 'shared';
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
+
 
 
 interface SidebarProps {
@@ -48,9 +49,11 @@ const Sidebar: React.FC<SidebarProps> = memo((props) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.items}>
+            <VStack className={cls.items}
+                gap='8'
+            >
                 {itemsList}
-            </div>
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
                 <LangSwitcher 
