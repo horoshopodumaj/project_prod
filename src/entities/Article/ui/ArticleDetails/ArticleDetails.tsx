@@ -10,7 +10,7 @@ import { fetchArticleById } from
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 
     '../../model/selectors/articleDetails';
-import { Icon, Text } from 'shared';
+import { HStack, Icon, Text, VStack } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
@@ -106,28 +106,30 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify='center' max className={cls.avatarWrapper}>
                     <Avatar 
                         size={200} 
                         src={article?.img}
                         className={cls.avatar}
                     />
-                </div>
-                <Text 
-                    className={cls.title}
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon}/>
-                    <Text text={String(article?.views)}/>
-                </div>
+                </HStack>
+                <VStack gap='4'>
+                    <Text 
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack gap='8' className={cls.articleInfo}>
+                        <Icon Svg={EyeIcon} className={cls.icon}/>
+                        <Text text={String(article?.views)}/>
+                    </HStack>
 
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
-                    <Text text={article?.createdAt}/>
-                </div>
+                    <HStack gap='8' className={cls.articleInfo}>
+                        <Icon Svg={CalendarIcon} className={cls.icon} />
+                        <Text text={article?.createdAt}/>
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
             </>
         )
@@ -135,9 +137,9 @@ const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
 
     return (
         <DymanicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articleDetails, {}, [className])}>
+            <VStack gap='16' className={classNames(cls.articleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DymanicModuleLoader>
     );
 }
