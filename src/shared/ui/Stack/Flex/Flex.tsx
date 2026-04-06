@@ -7,7 +7,9 @@ export type FlexAlign = 'center' | 'start' | 'end'
 export type FlexDirection = 'row' | 'column'
 export type FlexGap = '8' | '4' | '16'
 
-export interface FlexProps {
+type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;
@@ -16,6 +18,7 @@ export interface FlexProps {
     gap?: FlexGap;
     max?: boolean;
 }
+
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,

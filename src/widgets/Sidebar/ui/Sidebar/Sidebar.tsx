@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = memo((props) => {
     )), [collapsed, sidebarItemsList])
 
     return (
-        <menu 
+        <aside 
             data-testid='sidebar'
             className={classNames(cls.sidebar, 
                 {[cls.collapsed]: collapsed}, 
@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = memo((props) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <VStack className={cls.items}
+            <VStack role='navigation' className={cls.items}
                 gap='8'
             >
                 {itemsList}
@@ -60,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = memo((props) => {
                     className={cls.lang} 
                     short={collapsed}/>
             </div>
-        </menu>
+        </aside>
     );
 });
 

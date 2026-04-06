@@ -43,13 +43,13 @@ export const Page: React.FC<PageProps> = (props) => {
     }, 500)
 
     return (
-        <section ref={wrapperRef}
+        <main ref={wrapperRef}
             className={classNames(cls.page, {}, [className])}
             onScroll={onScroll}
         >
             {children}
             {onScrollEnd &&  <div className={cls.trigger} ref={triggerRef}/>}
-        </section>
+        </main>
     );
 }
 
