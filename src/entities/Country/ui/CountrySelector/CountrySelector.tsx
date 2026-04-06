@@ -33,6 +33,7 @@ export const CountrySelector: React.FC<CountrySelectorProps> = memo((props) => {
         <ListBox
             className={classNames('', {}, [className])}
             defaultValue={t('Страна')}
+            label={t('Страна')}
             value={value}
             onChange={onChangeHandler}
             items={options}

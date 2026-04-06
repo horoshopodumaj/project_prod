@@ -31,6 +31,7 @@ export const CurrenceSelect: React.FC<CurrenceSelectProps> = memo((props) => {
         <ListBox 
             className={classNames('', {}, [className])}
             defaultValue={t('Валюта')}
+            label={t('Валюта')}
             value={value}
             onChange={onChangeHandler}
             items={options}
