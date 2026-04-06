@@ -7,6 +7,7 @@ import { Select, SelectOptions } from "./ui/Select/Select";
 import { Icon } from "./ui/Icon/Icon";
 import { VStack } from "./ui/Stack/VStack/VStack";
 import { HStack } from "./ui/Stack/HStack/HStack";
+import { ListBox } from "./ui/ListBox/ListBox";
 
 
 
@@ -22,5 +23,6 @@ export {classNames,
     USER_LOCALSTORAGE_KEY, 
     SelectOptions,
     HStack,
-    VStack
+    VStack,
+    ListBox
 }

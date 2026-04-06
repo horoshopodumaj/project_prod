@@ -1,16 +1,8 @@
 import { Listbox as HListbox } from '@headlessui/react'
-import { Fragment, ReactNode, useState } from 'react'
+import { Fragment, ReactNode } from 'react'
 import cls from './ListBox.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames'
 import Button from '../Button/Button';
-
-// const people = [
-//     { id: 1, name: 'Durward Reynolds' },
-//     { id: 2, name: 'Kenton Towne' },
-//     { id: 3, name: 'Therese Wunsch' },
-//     { id: 4, name: 'Benedict Kessler' },
-//     { id: 5, name: 'Katelyn Rohan' },
-// ]
 
 export interface ListBoxItem {
     value: string;
@@ -23,7 +15,8 @@ interface ListBoxProps {
     items?: ListBoxItem[];
     value?: string;
     defaultValue?: string;
-    onChange: (value: string)=> void
+    onChange: (value: string)=> void;
+    readonly?: boolean
 }
 
 export function ListBox(props: ListBoxProps)  {
@@ -32,10 +25,9 @@ export function ListBox(props: ListBoxProps)  {
         items,
         value,
         defaultValue,
-        onChange
+        onChange,
+        readonly
     } = props;
-
-    const [selectedPerson, setSelectedPerson] = useState()
 
     return (
         <HListbox 
@@ -43,11 +35,13 @@ export function ListBox(props: ListBoxProps)  {
             className={classNames(cls.listBox, {}, [className])}
             value={value} 
             onChange={onChange}
+            disabled={readonly}
         >
             <HListbox.Button 
                 className={cls.trigger}
+                disabled={readonly}
             >
-                <Button>
+                <Button disabled={readonly}>
                     {value ?? defaultValue}
                 </Button>
             </HListbox.Button>

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared';
+import { ListBox } from 'shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { Country } from '../../model/types/country';
@@ -30,11 +30,12 @@ export const CountrySelector: React.FC<CountrySelectorProps> = memo((props) => {
 
 
     return (
-        <Select className={classNames('', {}, [className])}
-            label={t('Страна')}
+        <ListBox
+            className={classNames('', {}, [className])}
+            defaultValue={t('Страна')}
             value={value}
             onChange={onChangeHandler}
-            options={options}
+            items={options}
             readonly={readonly}
         />
 
