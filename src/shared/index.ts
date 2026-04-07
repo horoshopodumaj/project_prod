@@ -8,6 +8,7 @@ import { Icon } from "./ui/Icon/Icon";
 import { VStack } from "./ui/Stack/VStack/VStack";
 import { HStack } from "./ui/Stack/HStack/HStack";
 import { ListBox } from "./ui/ListBox/ListBox";
+import { Dropdown } from "./ui/Dropdown/Dropdown";
 
 
 
@@ -24,5 +25,6 @@ export {classNames,
     SelectOptions,
     HStack,
     VStack,
-    ListBox
+    ListBox,
+    Dropdown
 }
