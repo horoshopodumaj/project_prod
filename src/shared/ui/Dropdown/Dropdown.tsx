@@ -3,6 +3,7 @@ import cls from './Dropdown.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Fragment, ReactNode } from 'react';
+import { DropdownDirection } from 'shared';
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -15,16 +16,26 @@ export interface DropdownItem {
 interface DropdownProps {
     className?: string;
     items: DropdownItem[];
-    trigger: ReactNode
+    trigger: ReactNode;
+    direction?: DropdownDirection;
+}
+
+const mapDirectionClass: Record<DropdownDirection, string> = {
+    'bottom left': cls.bottomLeft,
+    'bottom right': cls.bottomRight,
+    'top left': cls.topLeft,
+    'top right': cls.topRight
 }
 
 export function Dropdown(props: DropdownProps) {
     const { 
         className,
         items,
-        trigger
+        trigger,
+        direction = 'bottom right',
     } = props;
-    const {t} = useTranslation();
+
+    const menuClasses = [mapDirectionClass[direction]]
 
     return (
         <Menu 
@@ -32,7 +43,9 @@ export function Dropdown(props: DropdownProps) {
             className={classNames(cls.dropdown, {}, [className])}
         >
             <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
-            <Menu.Items className={cls.menu}>
+            <Menu.Items
+                className={classNames(cls.menu, {}, menuClasses)}
+            >
                 {items?.map((item)=> (
                     <Menu.Item as={Fragment} 
                         key={item.id}
