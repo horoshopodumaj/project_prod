@@ -16,6 +16,7 @@ import {
     from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { NavigateOptions, To } from "react-router-dom";
+import { rtkApi } from "shared/api/rtkApi";
 
 
 
@@ -24,6 +25,7 @@ export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     ui: UISchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>; 
 
     //Асинхронные редюсеры
     loginForm?: LoginSchema;
