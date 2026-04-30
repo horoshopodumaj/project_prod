@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared';
+import { Text, VStack } from 'shared';
 import { AddCommentForm } from 'features/addCommentForm';
 import { CommentList } from 'entities/Comment';
 import { addCommentForArticle } 
@@ -42,10 +42,10 @@ export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = (pr
     }, [dispatch])
 
     return (
-        <div className={classNames('cls.articleDetailsComments', {}, [className])}>
+        <VStack gap='16' className={classNames('cls.articleDetailsComments', {}, [className])}>
             <Text size={TextSize.L} className={'cls.commentTitle'} title={t('Комментарии')}/>
             <AddCommentForm onSendComment={onSendComment}/>
             <CommentList isLoading={commentsisLoading} comments={comments}/>
-        </div>
+        </VStack>
     );
 }

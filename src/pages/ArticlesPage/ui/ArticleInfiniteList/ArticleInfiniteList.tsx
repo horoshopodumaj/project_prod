@@ -19,7 +19,7 @@ export const ArticleInfiniteList: React.FC<ArticleInfiniteListProps> = (props) =
     const view = useSelector(getArticlesPageView);
 
     if(error) {
-        return <Text>{t('Попробуйте обновить страницу')}</Text>
+        return <Text text={t('Попробуйте обновить страницу')}/>
     }
 
     return (
