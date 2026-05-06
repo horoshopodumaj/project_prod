@@ -42,7 +42,7 @@ export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = (pr
     }, [dispatch])
 
     return (
-        <VStack gap='16' className={classNames('cls.articleDetailsComments', {}, [className])}>
+        <VStack gap='16' max className={classNames('cls.articleDetailsComments', {}, [className])}>
             <Text size={TextSize.L} className={'cls.commentTitle'} title={t('Комментарии')}/>
             <AddCommentForm onSendComment={onSendComment}/>
             <CommentList isLoading={commentsisLoading} comments={comments}/>
