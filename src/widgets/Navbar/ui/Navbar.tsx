@@ -39,7 +39,8 @@ export const Navbar = memo(({className}:INavbarProps) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
-    }, [dispatch])
+        navigate(RoutePath.main)
+    }, [dispatch, navigate])
 
     const goToProfile = useCallback(()=> {
         if(!authData) return;

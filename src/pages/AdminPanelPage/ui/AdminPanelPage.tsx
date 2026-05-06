@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'widgets/Page/Page';
 
 interface AdminPanelPageProps {
     className?: string;
@@ -9,9 +10,9 @@ const AdminPanelPage: React.FC<AdminPanelPageProps> = (props) => {
     const { t } = useTranslation('admin');
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             {t("Админ панель")}
-        </div>
+        </Page>
     );
 }
 
