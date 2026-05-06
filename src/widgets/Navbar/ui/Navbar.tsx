@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { ButtonTheme } from 'shared/ui/Button/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, userActions } from 'entities/User'
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { TextTheme } from 'shared/ui/Text/Text'
@@ -23,6 +23,9 @@ export const Navbar = memo(({className}:INavbarProps) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const authData = useSelector(getUserAuthData)
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+
 
     const [isAuthModal, setIsAuthModal] = useState(false);
 
@@ -42,6 +45,13 @@ export const Navbar = memo(({className}:INavbarProps) => {
         if(!authData) return;
         navigate(RoutePath.profile + authData.id)
     }, [navigate, authData])
+
+    const goToAdmin = useCallback(()=> {
+        if(!authData) return;
+        navigate(RoutePath.admin_panel)
+    }, [navigate, authData])
+
+    const isAdminPanelAvailable = isAdmin || isManager
 
     if(authData) {
         return (
@@ -66,6 +76,11 @@ export const Navbar = memo(({className}:INavbarProps) => {
                         />)
                     }
                     items= {[
+                        ...(isAdminPanelAvailable ? [{
+                            id: 0,
+                            content: t("Админка"),
+                            onClick: goToAdmin
+                        }]: []),
                         {
                             id: 1,
                             content: t("Профиль"),

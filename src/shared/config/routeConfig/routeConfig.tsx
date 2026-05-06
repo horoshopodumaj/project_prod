@@ -1,3 +1,4 @@
+import { UserRole } from "entities/User"
 import { AboutPage } from "pages/AboutPage"
 import { AdminPanelPage } from "pages/AdminPanelPage"
 import { ArticleDetailsPage } from "pages/ArticleDetailsPage"
@@ -11,6 +12,7 @@ import { RouteProps } from "react-router-dom"
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
+    roles?: UserRole[];
 }
 
 export enum AppRoutes {
@@ -79,6 +81,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: RoutePath.admin_panel,
         element: <AdminPanelPage/>,
         authOnly: true,
+        roles: [UserRole.ADMIN, UserRole.MANAGER]
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
