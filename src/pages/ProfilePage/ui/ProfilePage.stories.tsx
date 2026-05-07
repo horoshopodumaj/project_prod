@@ -31,7 +31,8 @@ Light.decorators = [StoreDecorators({
             first: 'name',
             city: 'Erevan',
             currency: Currency.RUB,
-        }
+        },
+        readOnly: true
     }
 })];
 
@@ -47,6 +48,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorators({
             first: 'name',
             city: 'Erevan',
             currency: Currency.RUB,
-        }
+        },
+        readOnly: true
     }
 })];
