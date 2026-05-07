@@ -28,14 +28,14 @@ import { ArticleTextBlockComponent } from
 
 interface ArticleDetailsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {
     articleDetails: articleDetailsReducer,
 }
 
-const ArticleDetails: React.FC<ArticleDetailsProps> = (props) => {
+const ArticleDetails = (props: ArticleDetailsProps) => {
     const { className, id } = props;
     const dispatch = useAppDispatch();
     const {t} = useTranslation();

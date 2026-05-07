@@ -20,7 +20,7 @@ import { fetchCommentsByArticleId }
 
 interface ArticleDetailsCommentsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 export const ArticleDetailsComments: React.FC<ArticleDetailsCommentsProps> = (props) => {

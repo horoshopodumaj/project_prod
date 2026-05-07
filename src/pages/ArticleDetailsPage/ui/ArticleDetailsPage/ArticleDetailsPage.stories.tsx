@@ -11,7 +11,7 @@ import { Article, ArticleBlockType } from 'entities/Article/model/types/article'
 import Icon from 'shared/assets/icons/js.png'
 
 export default {
-    title: 'pages/ArticleDetailsPage',
+    title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {
         backgroundColor: { control: 'color' },
