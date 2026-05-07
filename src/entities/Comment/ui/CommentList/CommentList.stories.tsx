@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CommentList  from './CommentList';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
-import {action} from '@storybook/addon-actions'
 
 
 export default {
