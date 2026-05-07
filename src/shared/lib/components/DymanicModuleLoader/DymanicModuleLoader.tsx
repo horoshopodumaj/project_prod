@@ -1,6 +1,6 @@
 import { useDispatch, useStore } from 'react-redux';
 import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
-import {  useEffect } from 'react';
+import {  ReactNode, useEffect } from 'react';
 import { StateSchema, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
@@ -12,9 +12,10 @@ export type ReducersList = {
 interface DymanicModuleLoaderProps {
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
+    children: ReactNode;
 }
 
-export const DymanicModuleLoader: React.FC<DymanicModuleLoaderProps> = (props) => {
+export const DymanicModuleLoader = (props: DymanicModuleLoaderProps) => {
     const { children, 
         reducers, 
         removeAfterUnmount = true
