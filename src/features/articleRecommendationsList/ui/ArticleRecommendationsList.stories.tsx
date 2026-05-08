@@ -5,11 +5,12 @@ import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDec
 import withMock from 'storybook-addon-mock';
 import { Article, ArticleType } from 'entities/Article';
 import { ArticleBlockType } from 'entities/Article/model/types/article';
+import Icon from 'shared/assets/icons/js.png'
 
 const article: Article = {
     id: '1',
     title: 'Javascript news',
-    img: '',
+    img: Icon,
     subtitle: 'Что нового в JS за 2022 год?',
     views: 1022,
     createdAt: '26.02.2022',

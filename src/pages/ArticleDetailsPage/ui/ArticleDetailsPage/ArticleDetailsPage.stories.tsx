@@ -9,6 +9,7 @@ import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDec
 import { ArticleType } from 'entities/Article';
 import { Article, ArticleBlockType } from 'entities/Article/model/types/article';
 import Icon from 'shared/assets/icons/js.png'
+import withMock from 'storybook-addon-mock';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
@@ -16,6 +17,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withMock]
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;
@@ -92,6 +94,20 @@ Light.decorators = [StoreDecorators({
         data: article
     }
 })];
+Light.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {...article, id: 1},
+                {...article, id: 2},
+                {...article, id: 3},
+            ],
+        },
+    ],
+};
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -127,3 +143,17 @@ Dark.decorators = [ThemeDecorator(Theme.DARK),
         }
     })
 ];
+Dark.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {...article, id: 1},
+                {...article, id: 2},
+                {...article, id: 3},
+            ],
+        },
+    ],
+};
