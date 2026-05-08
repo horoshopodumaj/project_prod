@@ -1,7 +1,6 @@
 import { Menu,  } from '@headlessui/react'
 import cls from './Dropdown.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { Fragment, ReactNode } from 'react';
 import { DropdownDirection } from 'shared';
 

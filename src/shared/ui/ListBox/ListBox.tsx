@@ -1,10 +1,10 @@
 import { Listbox as HListbox } from '@headlessui/react'
 import { Fragment, ReactNode } from 'react'
 import cls from './ListBox.module.scss';
-import { classNames } from 'shared'
+import { classNames } from '../../lib/classNames/classNames'
 import Button from '../Button/Button';
 import { HStack } from '../Stack/HStack/HStack';
-import { DropdownDirection } from 'shared';
+import { DropdownDirection } from '../../types/ui';
 
 export interface ListBoxItem {
     value: string;
