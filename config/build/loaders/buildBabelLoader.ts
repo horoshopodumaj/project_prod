@@ -1,10 +1,13 @@
 import { BuildOptions } from "../types/config";
 
-export function buildBabelLoader(options: BuildOptions) {
-    const {isDev} = options;
+interface BuildBabelLoaderProps extends BuildOptions {
+    isTsx?: boolean;
+}
+export function buildBabelLoader(options: BuildBabelLoaderProps) {
+    const {isDev, isTsx} = options;
     
     return {
-        test: /\.(js|jsx|tsx)$/,
+        test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: "babel-loader",
@@ -17,6 +20,13 @@ export function buildBabelLoader(options: BuildOptions) {
                             keyAsDefaultValue: true
                         }
                     ],
+                    [
+                        "@babel/plugin-transform-typescript",
+                        {
+                            isTsx,
+                        }
+                    ],
+                    "@babel/plugin-transform-runtime",
                     isDev && require.resolve('react-refresh/babel')
                 ].filter(Boolean)
             }

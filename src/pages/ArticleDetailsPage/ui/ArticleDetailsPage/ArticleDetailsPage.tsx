@@ -33,9 +33,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap='16' max>
                     <ArticleDetailsPageHeader/>
                     <ArticleDetails id={id}/>
-                    {/* {__PROJECT__ !== 'storybook' && ( */}
                     <ArticleRecommendationsList/>
-                    {/* )} */}
                     <ArticleDetailsComments id={id}/>
                 </VStack>
             </Page>
