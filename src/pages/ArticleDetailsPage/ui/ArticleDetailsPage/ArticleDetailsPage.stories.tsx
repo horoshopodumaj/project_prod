@@ -6,8 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
-import { ArticleType } from 'entities/Article';
-import { Article, ArticleBlockType } from 'entities/Article/model/types/article';
+import { Article, ArticleBlockType, ArticleType } from 'entities/Article';
 import Icon from 'shared/assets/icons/js.png'
 import withMock from 'storybook-addon-mock';
 

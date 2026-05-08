@@ -1,4 +1,4 @@
-import { ArticleSortField, ArticleType, ArticleView } from "./model/types/article";
+import { ArticleSortField, ArticleView, ArticleType, ArticleBlockType } from "./model/const/const";
 import ArticleDetails from "./ui/ArticleDetails/ArticleDetails";
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import { articleDetailsActions, articleDetailsReducer } from "./model/slice/articleDetailsSlice";
@@ -17,11 +17,12 @@ import { getArticleDetailsError,
 export { ArticleDetails, 
     ArticleType, 
     ArticleView,
-    ArticleDetailsSchema,
+    ArticleBlockType,
+    type ArticleDetailsSchema,
     articleDetailsReducer,
     articleDetailsActions,
     ArticleList,
-    Article,
+    type Article,
     ArticleViewSelector,
     ArticleSortField,
     ArticleSortSelector,

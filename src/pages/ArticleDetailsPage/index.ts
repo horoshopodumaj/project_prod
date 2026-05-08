@@ -11,9 +11,9 @@ import { fetchArtcileRecommendations } from
 
 
 export {ArticleDetailsPageAsync as ArticleDetailsPage, 
-    ArticleDetailsCommentsSchema, 
-    ArticleDetailsRecommendationsSchema,
+    type ArticleDetailsCommentsSchema, 
+    type ArticleDetailsRecommendationsSchema,
     articleDetailsRecommendationsReducer,
-    ArticleDetailsPageSchema,
+    type ArticleDetailsPageSchema,
     fetchArtcileRecommendations
 }

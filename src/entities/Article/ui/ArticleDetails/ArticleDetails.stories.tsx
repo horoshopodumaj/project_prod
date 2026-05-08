@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { Article } from 'entities/Article';
+import { ArticleBlockType, ArticleType } from "entities/Article";
 import  ArticleDetails  from './ArticleDetails';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 import Icon from 'shared/assets/icons/js.png'

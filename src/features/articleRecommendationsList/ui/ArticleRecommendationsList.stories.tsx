@@ -3,8 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleRecommendationsList }  from './ArticleRecommendationsList';
 import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
 import withMock from 'storybook-addon-mock';
-import { Article, ArticleType } from 'entities/Article';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
+import { Article, ArticleType, ArticleBlockType } from 'entities/Article';
 import Icon from 'shared/assets/icons/js.png'
 
 const article: Article = {

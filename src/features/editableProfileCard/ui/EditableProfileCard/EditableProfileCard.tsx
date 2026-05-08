@@ -18,7 +18,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } 
     from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
+import { ValidateProfileError } from "features/editableProfileCard/model/consts/consts";
 import { DymanicModuleLoader, ReducersList } 
     from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';

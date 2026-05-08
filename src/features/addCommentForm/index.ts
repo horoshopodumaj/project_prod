@@ -1,4 +1,4 @@
 import { AddCommentFormSchema } from './model/types/addCommentForm'
 import {AddCommentFormAsync as AddCommentForm} from './ui/AddCommentForm/AddCommentFormAsync.async'
 
-export { AddCommentFormSchema, AddCommentForm } 
+export { type AddCommentFormSchema, AddCommentForm } 

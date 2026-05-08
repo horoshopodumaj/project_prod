@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } 
+import { Article, ArticleTextBlock } 
     from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from "../../model/const/const";
 import { AppLink, Button, Icon, Text } from 'shared';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import { Card } from 'shared/ui/Card/Card';

@@ -22,10 +22,10 @@ export {classNames,
     Select, 
     Icon,
     USER_LOCALSTORAGE_KEY, 
-    SelectOptions,
+    type SelectOptions,
     HStack,
     VStack,
     ListBox,
     Dropdown,
-    DropdownDirection
+    type  DropdownDirection
 }

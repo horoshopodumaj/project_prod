@@ -6,6 +6,6 @@ import { profileReducer } from './model/slice/profileSlice';
 
 export { 
     EditableProfileCard,
-    ProfileSchema,
+    type ProfileSchema,
     profileReducer
 }

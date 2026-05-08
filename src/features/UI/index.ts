@@ -4,4 +4,4 @@ import { getUIScrollByPath } from './model/selectors/ui'
 import { uiReducer, uiActions } from './model/slice/UISlice';
 
 
-export { UISchema, getUIScrollByPath, uiReducer, uiActions }
+export {type  UISchema, getUIScrollByPath, uiReducer, uiActions }

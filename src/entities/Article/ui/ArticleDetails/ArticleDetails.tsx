@@ -17,7 +17,8 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
-import { ArticleBlock, ArticleBlockType } from '../..//model/types/article';
+import { ArticleBlock } from '../../model/types/article';
+import { ArticleBlockType } from "../../model/const/const";
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from 
     '../ArticleImageBlockComponent/ArticleImageBlockComponent';

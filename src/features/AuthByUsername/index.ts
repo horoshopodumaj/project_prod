@@ -5,4 +5,4 @@ import { LoginSchema } from "./model/types/loginSchema";
 
 
 
-export { LoginModal, loginActions, LoginSchema }
+export { LoginModal, loginActions, type LoginSchema }

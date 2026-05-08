@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Article, ArticleBlockType, ArticleType, ArticleView } from 'entities/Article/model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleBlockType, ArticleView, ArticleType } from "../../model/const/const";
 import  { ArticleList } from './ArticleList';
 import Icon from 'shared/assets/icons/js.png'
 
