@@ -11,7 +11,9 @@ interface NotificationListProps {
 
 export const NotificationList: React.FC<NotificationListProps> = (props) => {
     const { className } = props;
-    const { data, isLoading } = useNotifications(null);
+    const { data, isLoading } = useNotifications(null, {
+        pollingInterval: 10000
+    });
 
     if(isLoading) {
         return (
