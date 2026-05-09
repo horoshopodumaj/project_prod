@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './NotificationList.module.scss';
 import { useNotifications } from 'entities/Notification/api/notificationApi';
 import { VStack } from 'shared';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
@@ -17,7 +16,7 @@ export const NotificationList: React.FC<NotificationListProps> = (props) => {
 
     if(isLoading) {
         return (
-            <VStack gap='16' max className={classNames(cls.notificationList, {}, [className])}>
+            <VStack gap='16' max className={classNames('', {}, [className])}>
                 <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
                 <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
                 <Skeleton width={'100%'} border={'8px'} height={'80px'}/>
@@ -26,7 +25,7 @@ export const NotificationList: React.FC<NotificationListProps> = (props) => {
     }
 
     return (
-        <VStack gap='16' max className={classNames(cls.notificationList, {}, [className])}>
+        <VStack gap='16' max className={classNames('', {}, [className])}>
             {data?.map((item)=> (
                 <NotificationItem key={item.id} item={item}/>
             ))}
