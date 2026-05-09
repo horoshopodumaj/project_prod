@@ -57,7 +57,8 @@ module.exports = {
                 'direction', 
                 'justify', 
                 'role',
-                'as'
+                'as',
+                'border'
             ]
         }],
         'max-len': ['error', { ignoreComments: true, code: 100 }],

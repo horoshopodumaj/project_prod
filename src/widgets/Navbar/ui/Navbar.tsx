@@ -12,6 +12,7 @@ import { TextTheme } from 'shared/ui/Text/Text'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { useNavigate } from 'react-router-dom'
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
+import { NotificationList } from 'entities/Notification'
 
 
 
@@ -79,7 +80,7 @@ export const Navbar = memo(({className}:INavbarProps) => {
                         )}
                         direction={'bottom left'}
                     >
-                        {`Content`}
+                        <NotificationList className={cls.notifications}/>
                     </Popover>
                     
                     <Dropdown
