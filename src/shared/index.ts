@@ -7,8 +7,9 @@ import { Select, SelectOptions } from "./ui/Select/Select";
 import { Icon } from "./ui/Icon/Icon";
 import { VStack } from "./ui/Stack/VStack/VStack";
 import { HStack } from "./ui/Stack/HStack/HStack";
-import { ListBox } from "./ui/ListBox/ListBox";
-import { Dropdown } from "./ui/Dropdown/Dropdown";
+import { ListBox } from "./ui/Popups";
+import { Popover } from "./ui/Popups";
+import { Dropdown } from "./ui/Popups";
 import { DropdownDirection } from './types/ui'
 
 
@@ -25,5 +26,6 @@ export {classNames,
     VStack,
     ListBox,
     Dropdown,
+    Popover,
     type  DropdownDirection
 }

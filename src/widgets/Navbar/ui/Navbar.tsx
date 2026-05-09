@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useState } from 'react'
-import { AppLink, Button, classNames, Dropdown, Text } from 'shared'
+import { AppLink, Button, classNames, Dropdown, HStack, Icon, Popover, Text } from 'shared'
 import cls from './Navbar.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ButtonTheme } from 'shared/ui/Button/Button'
@@ -11,6 +11,7 @@ import { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { TextTheme } from 'shared/ui/Text/Text'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { useNavigate } from 'react-router-dom'
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg'
 
 
 
@@ -67,35 +68,47 @@ export const Navbar = memo(({className}:INavbarProps) => {
                     to={RoutePath.article_create}>
                     {t('Создать статью')}
                 </AppLink>
-                <Dropdown
-                    direction='bottom left'
-                    className={cls.dropdown}
-                    trigger={
-                        (<Avatar
-                            size={30} 
-                            src={authData?.avatar}
-                        />)
-                    }
-                    items= {[
-                        ...(isAdminPanelAvailable ? [{
-                            id: 0,
-                            content: t("Админка"),
-                            onClick: goToAdmin
-                        }]: []),
-                        {
-                            id: 1,
-                            content: t("Профиль"),
-                            onClick: goToProfile
-                        },
-                        {
-                            id: 2,
-                            content: t("Выйти"),
-                            onClick: onLogout
-                        },
-                        
-                       
-                    ]}
-                />
+                <HStack gap='16' className={cls.actions}>
+                    <Popover 
+                        trigger={(
+                            <Button theme={ButtonTheme.CLEAR}>
+                                <Icon Svg={NotificationIcon}
+                                    inverted
+                                />
+                            </Button>
+                        )}
+                        direction={'bottom left'}
+                    >
+                        {`Content`}
+                    </Popover>
+                    
+                    <Dropdown
+                        direction='bottom left'
+                        trigger={
+                            (<Avatar
+                                size={30} 
+                                src={authData?.avatar}
+                            />)
+                        }
+                        items= {[
+                            ...(isAdminPanelAvailable ? [{
+                                id: 0,
+                                content: t("Админка"),
+                                onClick: goToAdmin
+                            }]: []),
+                            {
+                                id: 1,
+                                content: t("Профиль"),
+                                onClick: goToProfile
+                            },
+                            {
+                                id: 2,
+                                content: t("Выйти"),
+                                onClick: onLogout
+                            },
+                        ]}
+                    />
+                </HStack>
                 
             </header>
         )
