@@ -3,6 +3,7 @@ import cls from './Modal.module.scss';
 import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { Portal } from '../Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps {
     className?: string;
@@ -50,10 +51,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
         }
     }, [closeHandler])
 
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation()
-    }
-
     useEffect(()=> {
         if(isOpen) {
             window.addEventListener('keydown', onKeyDown)
@@ -76,13 +73,11 @@ export const Modal: React.FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div 
-                        className={classNames(cls.content, {[cls.contentOpened]: isOpen}, [])} 
-                        onClick={ onContentClick}
-                    >
-                        {children}
-                    </div>
+                <Overlay onClick={closeHandler}/>
+                <div 
+                    className={classNames(cls.content, {[cls.contentOpened]: isOpen}, [])} 
+                >
+                    {children}
                 </div>
             </div>
         </Portal>

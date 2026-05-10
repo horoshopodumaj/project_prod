@@ -12,8 +12,6 @@ import { TextTheme } from 'shared/ui/Text/Text'
 import { NotificationButton } from 'features/notificationButton'
 import { AvatarDropdown } from 'features/avatarDropdown'
 
-
-
 interface INavbarProps {
     className?: string
 }
@@ -31,8 +29,6 @@ export const Navbar = memo(({className}:INavbarProps) => {
     const onShowModal = useCallback(() => {
         setIsAuthModal(true)
     }, [])
-
-
 
     if(authData) {
         return (
