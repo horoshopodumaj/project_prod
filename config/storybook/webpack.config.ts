@@ -20,14 +20,14 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config!.resolve!.extensions!.push('.ts', '.tsx');
 
 
-        //@ts-expect-error
-        config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
-            if (/svg/.test(rule.test as string)) {
-                return { ...rule, exclude: /\.svg$/i };
-            }
+    //@ts-expect-error
+    config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
+        if (/svg/.test(rule.test as string)) {
+            return { ...rule, exclude: /\.svg$/i };
+        }
 
-            return rule;
-        });
+        return rule;
+    });
     
 
     config!.module!.rules!.push({

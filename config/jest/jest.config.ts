@@ -41,6 +41,7 @@ export default {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent'),
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     globals: {
         __IS_DEV__: true,
