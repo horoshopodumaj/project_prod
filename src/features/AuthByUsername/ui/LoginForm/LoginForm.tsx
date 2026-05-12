@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './LoginForm.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Button, Text } from 'shared';
-import Input from 'shared/ui/Input/Input';
-import { ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, Text } from '@/shared';
+import Input from '@/shared/ui/Input/Input';
+import { ButtonTheme } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
+import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
 import { loginByUsername } from 
-    'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { TextTheme } from 'shared/ui/Text/Text';
+    '@/features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { TextTheme } from '@/shared/ui/Text/Text';
 import { getLoginUsername } from 
     '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from 
@@ -18,8 +18,8 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import { getLoginIsLoading } from 
     '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { DymanicModuleLoader, ReducersList } from 
-    'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+    '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 
 export interface LoginFormProps {

@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ListBox } from 'shared';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ListBox } from '@/shared';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { Country } from '../../model/types/country';

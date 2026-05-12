@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Comment } from 'entities/Comment';
-import { Text, VStack } from 'shared';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Comment } from '@/entities/Comment';
+import { Text, VStack } from '@/shared';
 import { useTranslation } from 'react-i18next';
 import  CommentCard from '../CommentCard/CommentCard';
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared';
+import { classNames } from '@/shared';
 import cls from './NotFoundPage.module.scss';
-import { Page } from 'widgets/Page/Page';
+import { Page } from '@/widgets/Page/Page';
 
 const NotFoundPage = () => {
     const { t } = useTranslation();

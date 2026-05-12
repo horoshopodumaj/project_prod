@@ -1,22 +1,22 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleDetails.module.scss';
 import { DymanicModuleLoader, ReducersList } from 
-    'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+    '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import { memo, useCallback, useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 
-    'entities/Article/model/services/fetchArticleById/fetchArticleById';
+    '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 
     '../../model/selectors/articleDetails';
-import { HStack, Icon, Text, VStack } from 'shared';
+import { HStack, Icon, Text, VStack } from '@/shared';
 import { useTranslation } from 'react-i18next';
-import { TextAlign, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
+import { TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
 import { ArticleBlock } from '../../model/types/article';
 import { ArticleBlockType } from "../../model/const/const";
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

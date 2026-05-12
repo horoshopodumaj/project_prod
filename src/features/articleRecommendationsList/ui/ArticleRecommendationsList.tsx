@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, VStack } from 'shared';
-import { ArticleList } from 'entities/Article';
-import { TextSize } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, VStack } from '@/shared';
+import { ArticleList } from '@/entities/Article';
+import { TextSize } from '@/shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useArticleRecommendationsList } from '../api/articleRecommendationsApi';
 

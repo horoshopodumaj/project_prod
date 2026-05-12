@@ -1,13 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
-import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article';
-import Icon from 'shared/assets/icons/js.png'
+import { StoreDecorators } from '@/shared/config/storybook/StoreDecorator/StoreDecorators';
+import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
+import Icon from '@/shared/assets/icons/js.png'
 import withMock from 'storybook-addon-mock';
 
 export default {

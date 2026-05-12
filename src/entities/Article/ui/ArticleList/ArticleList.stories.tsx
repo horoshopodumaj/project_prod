@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Article } from '../../model/types/article';
 import { ArticleBlockType, ArticleView, ArticleType } from "../../model/const/const";
 import  { ArticleList } from './ArticleList';
-import Icon from 'shared/assets/icons/js.png'
+import Icon from '@/shared/assets/icons/js.png'
 
 
 export default {

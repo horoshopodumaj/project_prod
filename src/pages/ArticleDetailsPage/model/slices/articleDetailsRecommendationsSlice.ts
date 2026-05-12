@@ -3,9 +3,9 @@ import {
     createSlice,
     PayloadAction,
 } from '@reduxjs/toolkit'
-import { StateSchema } from 'app/providers/StoreProvider'
+import { StateSchema } from '@/app/providers/StoreProvider'
 import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema'
-import { Article } from 'entities/Article'
+import { Article } from '@/entities/Article'
 import { fetchArtcileRecommendations } 
     from '../services/fetchArtcileRecommendations/fetchArtcileRecommendations'
 

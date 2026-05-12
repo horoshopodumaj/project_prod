@@ -1,5 +1,5 @@
 import { getCounter } from "./getCounter"
-import { StateSchema } from "app/providers/StoreProvider"
+import { StateSchema } from "@/app/providers/StoreProvider"
 
 describe('geCounter', ()=> {
     test('should return counter value', ()=> {

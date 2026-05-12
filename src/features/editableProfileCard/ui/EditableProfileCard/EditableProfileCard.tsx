@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, VStack } from 'shared';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, VStack } from '@/shared';
 import { useTranslation } from 'react-i18next';
 import { 
-    ProfileCard } from 'entities/Profile';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+    ProfileCard } from '@/entities/Profile';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { TextTheme } from 'shared/ui/Text/Text';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { TextTheme } from '@/shared/ui/Text/Text';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
@@ -18,9 +18,9 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileValidateErrors } 
     from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { ValidateProfileError } from "features/editableProfileCard/model/consts/consts";
+import { ValidateProfileError } from "@/features/editableProfileCard/model/consts/consts";
 import { DymanicModuleLoader, ReducersList } 
-    from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
+    from '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 

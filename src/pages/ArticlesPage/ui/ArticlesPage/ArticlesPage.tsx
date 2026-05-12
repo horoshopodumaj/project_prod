@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 import { memo, useCallback } from 'react';
 import { DymanicModuleLoader, ReducersList } 
-    from 'shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
+    from '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { articlesPageReducer } 
     from '../../model/slices/articlesPageSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'widgets/Page/Page';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from '@/widgets/Page/Page';
 import { fetchNextArticlesPage } 
     from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';

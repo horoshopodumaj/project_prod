@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { EditableProfileCard }  from './EditableProfileCard';
-import { StoreDecorators } from 'shared/config/storybook/StoreDecorator/StoreDecorators';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { StoreDecorators } from '@/shared/config/storybook/StoreDecorator/StoreDecorators';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 
 const profile = {
     "id": "1",
