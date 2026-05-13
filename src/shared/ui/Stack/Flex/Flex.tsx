@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 export type FlexJustify = 'center' | 'start' | 'end' | 'between'
 export type FlexAlign = 'center' | 'start' | 'end'
 export type FlexDirection = 'row' | 'column'
-export type FlexGap = '8' | '4' | '16'
+export type FlexGap = '8' | '4' | '16' | '32'
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
@@ -42,6 +42,7 @@ const gapClasses: Record<FlexGap, string> = {
     '4': cls.gap4,
     '8': cls.gap8,
     '16': cls.gap16,
+    '32': cls.gap32,
 }
 
 export const Flex: React.FC<FlexProps> = (props) => {
