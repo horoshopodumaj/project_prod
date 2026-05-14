@@ -721,6 +721,20 @@
       "rate": 3,
       "userId": "1",
       "articleId": "2"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "feedback": "",
+      "id": "9rSwwfE"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "",
+      "id": "XF7sVCE"
     }
   ],
   "profile-ratings": [

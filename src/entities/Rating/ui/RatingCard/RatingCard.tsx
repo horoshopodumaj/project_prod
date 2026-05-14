@@ -10,6 +10,7 @@ import Input from '@/shared/ui/Input/Input';
 import { ButtonTheme } from '@/shared/ui/Button/Button';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { TextAlign } from '@/shared/ui/Text/Text';
 
 interface RatingCardProps {
     className?: string;
@@ -70,14 +71,14 @@ export const RatingCard: React.FC<RatingCardProps> = (props) => {
 
     return (
         <Card className={classNames(cls.ratingCard, {}, [className])} max>
-            <VStack align='center' gap='8' max>
+            <VStack align='center' gap='8'>
                 <Text title={title}/>
                 <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount}/>
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} onClose={onCancelHandler} lazy>
                     {modalContent}
-                    <VStack max gap={'32'}>
+                    <VStack max gap={'32'} >
                         <HStack max gap='16' justify='end'>
                             <Button 
                                 theme={ButtonTheme.OUTLINE_RED} 
