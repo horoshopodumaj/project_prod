@@ -5,7 +5,7 @@ import { getUserAuthData } from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 
 export interface ArticleRatingProps {
     className?: string;
@@ -66,4 +66,4 @@ const ArticleRating: React.FC<ArticleRatingProps> = (props) => {
     );
 }
 
-export default ArticleRating
+export default memo(ArticleRating);

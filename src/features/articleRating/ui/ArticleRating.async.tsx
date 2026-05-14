@@ -9,7 +9,7 @@ const ArticleRatingLazy = lazy(
 
 export const ArticleRatingAsync = (props: ArticleRatingProps) => {
     return (
-        <Suspense fallback={<Skeleton/>}>
+        <Suspense fallback={<Skeleton width={'100%'} height={140}/>}>
             <ArticleRatingLazy {...props}/>
         </Suspense>
 
