@@ -707,5 +707,35 @@
       "username": "user",
       "avatar": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 3,
+      "userId": "1",
+      "articleId": "2"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Отличный профиль",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 3,
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

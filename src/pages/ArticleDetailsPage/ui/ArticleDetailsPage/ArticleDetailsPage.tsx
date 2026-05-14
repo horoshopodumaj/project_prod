@@ -13,6 +13,7 @@ import { articlesDetailsReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -33,6 +34,7 @@ const ArticleDetailsPage: React.FC<ArticleDetailsPageProps> = (props) => {
                 <VStack gap='16' max>
                     <ArticleDetailsPageHeader/>
                     <ArticleDetails id={id}/>
+                    <ArticleRating articleId={id}/>
                     <ArticleRecommendationsList/>
                     <ArticleDetailsComments id={id}/>
                 </VStack>

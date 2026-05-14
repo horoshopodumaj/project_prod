@@ -18,6 +18,7 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard: React.FC<RatingCardProps> = (props) => {
@@ -26,13 +27,14 @@ export const RatingCard: React.FC<RatingCardProps> = (props) => {
         feedbackTitle,
         hasFeedback,
         onCancel,
-        onAccept
+        onAccept,
+        rate = 0
     } = props;
 
     const {t} = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
 
@@ -55,7 +57,6 @@ export const RatingCard: React.FC<RatingCardProps> = (props) => {
         onCancel?.(starsCount)
     }, [starsCount, onCancel ]);
 
-
     const modalContent = (
         <>
             <Text title={feedbackTitle}/>
@@ -68,10 +69,10 @@ export const RatingCard: React.FC<RatingCardProps> = (props) => {
     )
 
     return (
-        <Card className={classNames(cls.ratingCard, {}, [className])}>
-            <VStack align='center' gap='8'>
+        <Card className={classNames(cls.ratingCard, {}, [className])} max>
+            <VStack align='center' gap='8' max>
                 <Text title={title}/>
-                <StarRating size={40} onSelect={onSelectStars}/>
+                <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount}/>
             </VStack>
             <BrowserView>
                 <Modal isOpen={isModalOpen} onClose={onCancelHandler} lazy>
