@@ -1,5 +1,4 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './RatingCard.module.scss';
 import { Card } from '@/shared/ui/Card/Card';
 import { Button, HStack, Text, VStack } from '@/shared';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
@@ -69,7 +68,7 @@ export const RatingCard: React.FC<RatingCardProps> = (props) => {
     )
 
     return (
-        <Card className={classNames(cls.ratingCard, {}, [className])} max>
+        <Card className={classNames('', {}, [className])} max>
             <VStack align='center' gap='8'>
                 <Text title={starsCount ? t('Спасибо за оценку') : title}/>
                 <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount}/>
