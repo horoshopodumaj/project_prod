@@ -22,6 +22,9 @@ import { ValidateProfileError } from "@/features/editableProfileCard/model/const
 import { DymanicModuleLoader, ReducersList } 
     from '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ProfileRating } from '@/features/profileRating';
+import { getUserAuthData } from '@/entities/User';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 
 interface EditableProfileCardProps {
@@ -39,6 +42,10 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) =
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
     const validateErrors = useSelector(getProfileValidateErrors);
+
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id
 
     const validateErrorTranslate = {
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
@@ -118,6 +125,9 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = (props) =
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
+                {!canEdit && (
+                    <ProfileRating profileId={id}/>
+                )}
             </VStack>
         </DymanicModuleLoader>
     );
