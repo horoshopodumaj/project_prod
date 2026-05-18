@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Popover } from './Popover';
 import { NotificationList } from '@/entities/Notification';
-import Button from '@/shared/ui/Button/Button';
+import Button from '../../../Button/Button';
 import { StoreDecorators } from '@/shared/config/storybook/StoreDecorator/StoreDecorators';
 import withMock from 'storybook-addon-mock';
 

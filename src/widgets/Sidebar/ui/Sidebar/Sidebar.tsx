@@ -7,7 +7,7 @@ import {  Button, VStack } from '@/shared';
 import { ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
-import { getSidebarItems } from '@/widgets/Sidebar/model/selectors/getSidebarItems';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 
 

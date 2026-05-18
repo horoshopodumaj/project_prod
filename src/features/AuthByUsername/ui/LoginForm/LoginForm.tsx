@@ -6,9 +6,9 @@ import Input from '@/shared/ui/Input/Input';
 import { ButtonTheme } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from 
-    '@/features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+    '../../model/services/loginByUsername/loginByUsername';
 import { TextTheme } from '@/shared/ui/Text/Text';
 import { getLoginUsername } from 
     '../../model/selectors/getLoginUsername/getLoginUsername';

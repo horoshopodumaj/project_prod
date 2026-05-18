@@ -23,7 +23,8 @@ module.exports = {
         "react",
         '@typescript-eslint',
         "i18next",
-        "react-hooks"
+        "react-hooks",
+        "fsd-rules-plugin"
     ],
     rules: {
         "react/jsx-indent": [2, 4],
@@ -65,7 +66,8 @@ module.exports = {
         'linebreak-style': 0,
         "react-hooks/rules-of-hooks": "error", 
         "react-hooks/exhaustive-deps": "error" ,
-        "no-undef": 'off'
+        "no-undef": 'off',
+        "fsd-rules-plugin/path-checker": ["error", { alias: '@' }]
     },
     root: true,
     globals: {

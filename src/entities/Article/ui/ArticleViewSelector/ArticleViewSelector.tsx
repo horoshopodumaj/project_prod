@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleViewSelector.module.scss';
-import { ArticleView } from "@/entities/Article/model/const/const";
+import { ArticleView } from "../../model/const/const";
 import ListIcon from '@/shared/assets/icons/list-24-24.svg'
 import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg'
 import { Button, Icon } from '@/shared';

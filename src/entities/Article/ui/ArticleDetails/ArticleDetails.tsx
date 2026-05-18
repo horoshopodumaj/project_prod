@@ -2,11 +2,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleDetails.module.scss';
 import { DymanicModuleLoader, ReducersList } from 
     '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { memo, useCallback, useEffect } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 
-    '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
+    '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 
     '../../model/selectors/articleDetails';
