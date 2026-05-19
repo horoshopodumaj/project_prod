@@ -69,7 +69,11 @@ module.exports = {
         "no-undef": 'off',
         "fsd-rules-plugin/path-checker": ["error", { alias: '@' }],
         'fsd-rules-plugin/public-api-imports': [
-            'error', { alias: '@'},
+            'error', 
+            { 
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorators.tsx'],
+            },
         ]
     },
     root: true,
