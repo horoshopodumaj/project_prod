@@ -8,7 +8,7 @@ import {  VStack } from '@/shared';
 import { DymanicModuleLoader, ReducersList } from 
     '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { articlesDetailsReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';

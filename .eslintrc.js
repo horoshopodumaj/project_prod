@@ -67,7 +67,10 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error", 
         "react-hooks/exhaustive-deps": "error" ,
         "no-undef": 'off',
-        "fsd-rules-plugin/path-checker": ["error", { alias: '@' }]
+        "fsd-rules-plugin/path-checker": ["error", { alias: '@' }],
+        'fsd-rules-plugin/public-api-imports': [
+            'error', { alias: '@'},
+        ]
     },
     root: true,
     globals: {

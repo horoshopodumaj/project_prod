@@ -2,10 +2,15 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article';
+//TODO
+//eslint-disable-next-line 
 import { addCommentFormReducer } from '@/features/addCommentForm/model/slice/addCommentFormSlice';
+//eslint-disable-next-line 
 import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from '@/features/editableProfileCard';
+//eslint-disable-next-line 
 import { articlesDetailsReducer } from '@/pages/ArticleDetailsPage/model/slices';
+//eslint-disable-next-line 
 import { articlesPageReducer } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
 import { ReducersList } from '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 

@@ -67,7 +67,7 @@
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
-    "eslint-plugin-fsd-rules-plugin": "^1.0.8",
+    "eslint-plugin-fsd-rules-plugin": "^1.1.0",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.29.2",
