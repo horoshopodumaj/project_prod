@@ -1,7 +1,7 @@
 import { ArticleSortField, ArticleView, ArticleType, ArticleBlockType } from "./model/const/const";
 import ArticleDetails from "./ui/ArticleDetails/ArticleDetails";
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
-import { articleDetailsActions, articleDetailsReducer } from "./model/slice/articleDetailsSlice";
+import { articleDetailsActions } from "./model/slice/articleDetailsSlice";
 import { ArticleList } from "./ui/ArticleList/ArticleList";
 import { Article } from "./model/types//article";
 import { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
@@ -19,7 +19,6 @@ export { ArticleDetails,
     ArticleView,
     ArticleBlockType,
     type ArticleDetailsSchema,
-    articleDetailsReducer,
     articleDetailsActions,
     ArticleList,
     type Article,
