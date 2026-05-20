@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User'
 import { useCallback } from 'react';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from "@/shared/const/router";
 import { useTranslation } from 'react-i18next';
 
 interface AvatarDropdownProps {

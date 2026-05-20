@@ -4,7 +4,7 @@ import { Comment } from '../../model/types/comment';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { AppLink, Text, VStack } from '@/shared';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from "@/shared/const/router";
 
 interface CommentCardProps {
     className?: string;

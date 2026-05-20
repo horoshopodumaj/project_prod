@@ -6,7 +6,7 @@ import { ButtonTheme } from '@/shared/ui/Button/Button'
 import { LoginModal } from '@/features/AuthByUsername'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutePath } from "@/shared/const/router"
 import { AppLinkTheme } from '@/shared/ui/AppLink/AppLink'
 import { TextTheme } from '@/shared/ui/Text/Text'
 import { NotificationButton } from '@/features/notificationButton'
