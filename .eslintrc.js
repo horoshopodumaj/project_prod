@@ -68,7 +68,14 @@ module.exports = {
         "react-hooks/exhaustive-deps": "error" ,
         "no-undef": 'off',
         "fsd-rules-plugin/path-checker": ["error", { alias: '@' }],
-        'fsd-rules-plugin/public-api-imports': [
+        "fsd-rules-plugin/layer-imports": [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        "fsd-rules-plugin/public-api-imports": [
             'error', 
             { 
                 alias: '@',
