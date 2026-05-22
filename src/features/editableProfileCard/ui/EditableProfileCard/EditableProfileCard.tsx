@@ -22,7 +22,7 @@ import { ValidateProfileError } from "../../model/consts/consts";
 import { DymanicModuleLoader, ReducersList } 
     from '@/shared/lib/components/DymanicModuleLoader/DymanicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { ProfileRating } from '@/features/profileRating';
+import { ProfileRating } from '../../../profileRating';
 import { getUserAuthData } from '@/entities/User';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 

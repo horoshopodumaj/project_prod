@@ -1,14 +1,13 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
 import { memo, useMemo, useState } from 'react';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
-import { LangSwitcher } from '@/widgets/LangSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import {  Button, VStack } from '@/shared';
 import { ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-
 
 
 interface SidebarProps {
@@ -56,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = memo((props) => {
             </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
-                <LangSwitcher 
+                <LangSwitcher
                     className={cls.lang} 
                     short={collapsed}/>
             </div>

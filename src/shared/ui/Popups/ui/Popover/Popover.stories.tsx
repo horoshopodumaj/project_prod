@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Popover } from './Popover';
+//eslint-disable-next-line 
 import { NotificationList } from '@/entities/Notification';
 import Button from '../../../Button/Button';
 import { StoreDecorators } from '@/shared/config/storybook/StoreDecorator/StoreDecorators';

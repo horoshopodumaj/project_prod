@@ -2,10 +2,10 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 
 import ForbiddenPage from './ForbiddenPage';
 import { StoreDecorators } from '@/shared/config/storybook/StoreDecorator/StoreDecorators';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'pages/ForbiddenPage',
