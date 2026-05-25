@@ -3,7 +3,7 @@ import cls from './ArticleImageBlockComponent.module.scss';
 import { memo } from 'react';
 import { ArticleImageBlock } from '../../model/types/article';
 import { Text } from '@/shared';
-import { TextAlign } from '@/shared/ui/Text/Text';
+import { TextAlign } from '@/shared/ui/Text';
 
 interface ArticleImageBlockComponentProps {
     className?: string;

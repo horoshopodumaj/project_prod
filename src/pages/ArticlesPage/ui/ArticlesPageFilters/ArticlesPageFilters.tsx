@@ -19,12 +19,13 @@ import {
     from '../../model/selectors/articlesPageSelectors';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/shared/ui/Card/Card';
-import Input from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/Tabs';
+
 
 
 interface ArticlesPageFiltersProps {
@@ -95,7 +96,7 @@ export const ArticlesPageFilters: React.FC<ArticlesPageFiltersProps> = (props) =
                 />
             </div>
             <Card className={cls.search}>
-                <Input 
+                <Input
                     placeholder={t('Поиск')} 
                     value={search} 
                     onChange={onChangeSearch}/>

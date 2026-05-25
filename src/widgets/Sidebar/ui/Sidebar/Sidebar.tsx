@@ -4,7 +4,7 @@ import { memo, useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import {  Button, VStack } from '@/shared';
-import { ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import SidebarItem from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';

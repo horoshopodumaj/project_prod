@@ -9,7 +9,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useCallback } from 'react';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { TextTheme } from '@/shared/ui/Text/Text';
+import { TextTheme } from '@/shared/ui/Text';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

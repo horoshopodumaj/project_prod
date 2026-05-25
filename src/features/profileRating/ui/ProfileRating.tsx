@@ -4,7 +4,7 @@ import { useProfileRating, useRateProfile } from '../api/profileRatingApi';
 import { getUserAuthData } from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { skipToken } from '@reduxjs/toolkit/query';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { memo, useCallback } from 'react';
 
 export interface ProfileRatingProps {

@@ -12,9 +12,9 @@ import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoadi
     '../../model/selectors/articleDetails';
 import { HStack, Icon, Text, VStack } from '@/shared';
 import { useTranslation } from 'react-i18next';
-import { TextAlign, TextSize } from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { TextAlign, TextSize } from '@/shared/ui/Text';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
 import { ArticleBlock } from '../../model/types/article';

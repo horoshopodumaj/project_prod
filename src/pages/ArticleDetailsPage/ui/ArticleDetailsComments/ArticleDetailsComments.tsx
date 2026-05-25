@@ -13,7 +13,7 @@ import { getArticleCommentsIsLoading } from
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
-import { TextSize } from '@/shared/ui/Text/Text';
+import { TextSize } from '@/shared/ui/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } 
     from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

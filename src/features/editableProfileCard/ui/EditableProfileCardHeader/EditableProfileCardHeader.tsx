@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, HStack, Text } from '@/shared';
-import { ButtonTheme } from '@/shared/ui/Button/Button';
+import { ButtonTheme } from '@/shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
