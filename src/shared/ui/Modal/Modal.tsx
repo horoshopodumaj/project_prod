@@ -1,6 +1,6 @@
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
-import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { ReactNode } from 'react';
 import { Portal } from '../Portal/Portal';
 
 import { Overlay } from '../Overlay/Overlay';

@@ -2,8 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticleDetailsComments }  from './ArticleDetailsComments';
 import { StoreDecorators } from '@/shared/config/storybook/StoreDecorator/StoreDecorators';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
 
 
 const entities = {

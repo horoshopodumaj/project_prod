@@ -24,7 +24,8 @@ module.exports = {
         '@typescript-eslint',
         "i18next",
         "react-hooks",
-        "fsd-rules-plugin"
+        "fsd-rules-plugin",
+        "unused-imports",
     ],
     rules: {
         "react/jsx-indent": [2, 4],
@@ -81,7 +82,8 @@ module.exports = {
                 alias: '@',
                 testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorators.tsx'],
             },
-        ]
+        ],
+        'unused-imports/no-unused-imports': 'error',
     },
     root: true,
     globals: {
