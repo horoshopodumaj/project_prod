@@ -3,7 +3,7 @@ import {render} from '@testing-library/react'
 import { I18nextProvider } from "react-i18next";
 import i18nForTests from '@/shared/config/i18n/i18nForTests'
 import { MemoryRouter } from "react-router-dom";
-import { RoutePath } from "@/shared/const/router";
+import { getRouteMain } from "@/shared/const/router";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { ReducersMapObject } from "@reduxjs/toolkit";
 
@@ -15,7 +15,7 @@ export interface ComponentRenderOptions {
 
 export function ComponentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
     const {
-        route = RoutePath.main,
+        route = getRouteMain(),
         initialState,
         asyncReducers
     }  = options

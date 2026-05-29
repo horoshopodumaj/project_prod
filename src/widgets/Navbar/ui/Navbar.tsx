@@ -6,7 +6,7 @@ import { ButtonTheme } from '@/shared/ui/Button'
 import { LoginModal } from '@/features/AuthByUsername'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
-import { RoutePath } from "@/shared/const/router"
+import { getRouteArticleCreate } from "@/shared/const/router"
 import { AppLinkTheme } from '@/shared/ui/AppLink'
 import { TextTheme } from '@/shared/ui/Text'
 import { NotificationButton } from '@/features/notificationButton'
@@ -40,7 +40,7 @@ export const Navbar = memo(({className}:INavbarProps) => {
                 <AppLink 
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}
-                    to={RoutePath.article_create}>
+                    to={getRouteArticleCreate()}>
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap='16' className={cls.actions}>

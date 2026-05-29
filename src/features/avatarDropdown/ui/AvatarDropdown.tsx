@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User'
 import { useCallback } from 'react';
-import { RoutePath } from "@/shared/const/router";
+import { getRouteAdminPanel, getRouteMain, getRouteProfile } from "@/shared/const/router";
 import { useTranslation } from 'react-i18next';
 
 interface AvatarDropdownProps {
@@ -23,17 +23,17 @@ export const AvatarDropdown: React.FC<AvatarDropdownProps> = (props) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
-        navigate(RoutePath.main)
+        navigate(getRouteMain())
     }, [dispatch, navigate])
 
     const goToProfile = useCallback(()=> {
         if(!authData) return;
-        navigate(RoutePath.profile + authData.id)
+        navigate(getRouteProfile(authData.id))
     }, [navigate, authData])
 
     const goToAdmin = useCallback(()=> {
         if(!authData) return;
-        navigate(RoutePath.admin_panel)
+        navigate(getRouteAdminPanel())
     }, [navigate, authData])
 
     const isAdminPanelAvailable = isAdmin || isManager
