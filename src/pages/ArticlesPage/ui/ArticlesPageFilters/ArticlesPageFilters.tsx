@@ -4,11 +4,8 @@ import { useCallback } from 'react';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleSortField, 
-    ArticleSortSelector, 
     ArticleType, 
-    ArticleTypeTabs, 
-    ArticleView, 
-    ArticleViewSelector } 
+    ArticleView } 
     from '@/entities/Article';
 import { 
     getArticlesPageOrder, 
@@ -24,6 +21,9 @@ import { Input } from '@/shared/ui/Input';
 import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 
 interface ArticlesPageFiltersProps {
@@ -88,7 +88,7 @@ export const ArticlesPageFilters: React.FC<ArticlesPageFiltersProps> = (props) =
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
                 />
-                <ArticleViewSelector 
+                <ArticleViewSelector
                     view={view} 
                     onViewClick={onChangeView}
                 />

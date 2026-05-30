@@ -4,9 +4,6 @@ import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import { articleDetailsActions } from "./model/slice/articleDetailsSlice";
 import { ArticleList } from "./ui/ArticleList/ArticleList";
 import { Article } from "./model/types//article";
-import { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
-import { ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector";
-import { ArticleTypeTabs } from "./ui/ArticleTypeTabs/ArticleTypeTabs";
 import { getArticleDetailsError, 
     getArticleDetailsIsLoading, 
     getArticleDetailsData 
@@ -22,10 +19,7 @@ export { ArticleDetails,
     articleDetailsActions,
     ArticleList,
     type Article,
-    ArticleViewSelector,
     ArticleSortField,
-    ArticleSortSelector,
-    ArticleTypeTabs,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
     getArticleDetailsData
