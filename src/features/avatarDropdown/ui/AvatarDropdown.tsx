@@ -44,7 +44,8 @@ export const AvatarDropdown: React.FC<AvatarDropdownProps> = (props) => {
             className={classNames('', {}, [className])}
             trigger={
                 (<Avatar
-                    size={30} 
+                    size={30}
+                    fallbackInverted
                     src={authData?.avatar}
                 />)
             }
