@@ -8,7 +8,7 @@ import { Article, ArticleView, ArticleSortField, ArticleType } from '@/entities/
 import { ArticlesPageSchema } from '../types/articlesPageSchema'
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList'
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
-import { SortOrder } from '@/shared/types'
+import { SortOrder } from '@/shared/types/sort'
 
 
 const articlesAdapter = createEntityAdapter<Article>({
