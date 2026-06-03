@@ -5,7 +5,7 @@ import { AppImage } from './AppImage';
 import AvatarImg from './avatar_test.jpg'
 import { Skeleton } from '../Skeleton';
 import { Icon } from '../Icon';
-import UserIcom from '../../assets/icons/user-filled.svg'
+import UserIcom from './user-filled.svg'
 
 export default {
     title: 'shared/AppImage',
